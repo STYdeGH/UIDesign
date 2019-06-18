@@ -16,7 +16,7 @@
     <link href="Style/orstyle.css" rel="stylesheet" type="text/css">
     <link href="//shadow.elemecdn.com/faas/desktop/vendor.2e9f33.css" rel="stylesheet">
     <link href="//shadow.elemecdn.com/faas/desktop/profile.d24b94.css" rel="stylesheet" type="text/css">
-    <script type="text/javascript" src="JS/echarts.min.js"></script>
+    <script type="text/javascript" src="https://echarts.baidu.com/build/dist/echarts-all.js"></script>
     <script type="text/javascript" src="JS/macarons.js"></script>
     <script type="text/javascript" src="jquery.min.js"></script>
     <script type="text/javascript" src="JS/RestaurantHistoryOrder.js"></script>

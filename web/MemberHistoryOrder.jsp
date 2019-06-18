@@ -23,7 +23,7 @@
         text-align: left;
     }
 </style>
-<script type="text/javascript" src="JS/echarts.min.js"></script>
+<script type="text/javascript" src="https://echarts.baidu.com/build/dist/echarts-all.js"></script>
 <script type="text/javascript" src="JS/macarons.js"></script>
 <script type="text/javascript" src="JS/jquery.min.js"></script>
 <script type="text/javascript" src="JS/bootstrap.min.js"></script>

@@ -9,9 +9,9 @@
             maxWait="10000"
             logAbandoned="true"
             username="root"
-            password="123456"
+            password="123456sty"
             driverClassName="com.mysql.jdbc.Driver"
-            url="jdbc:mysql://127.0.0.1:3306/YUMMY1?characterEncoding=UTF8"/>
+            url="jdbc:mysql://127.0.0.1:3306/YUMMY1?characterEncoding=UTF8&amp;serverTimezone=GMT%2B8"/>
     <dependency>
         <groupId>com.google.code.gson</groupId>
         <artifactId>gson</artifactId>

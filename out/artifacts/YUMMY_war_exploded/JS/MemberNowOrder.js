@@ -226,7 +226,7 @@ function GetNowOrders(){
                             +"<p>"+result[i].orderState +"</p>"
                             +"</td>"
                             +"<td class='ordertimeline-handle'>"
-                            +"<div><button id='time"+result[i].orderID+" onclick='payorder("+result[i].orderID+","+result[i].orderPrice+")'></button>"
+                            +"<div><button id='time"+result[i].orderID+"' onclick='payorder("+result[i].orderID+","+result[i].orderPrice+")'></button>"
                             +"<button onclick='cancelbeforepay("+result[i].orderID+")'>取消订单</button></div>"
 
                             +"</td>"
@@ -303,7 +303,7 @@ function GetNowOrders(){
                             +"<p>"+result[i].orderState +"</p>"
                             +"</td>"
                             +"<td class='ordertimeline-handle'>"
-                            +"<div><button id='time"+result[i].orderID+" onclick='payorder("+result[i].orderID+","+result[i].orderPrice+")'></button>"
+                            +"<div><button id='time"+result[i].orderID+"' onclick='payorder("+result[i].orderID+","+result[i].orderPrice+")'></button>"
                             +"<button onclick='cancelafterpay("+result[i].orderID+")'>取消订单</button></div>"
                             +"</td>"
                             +"</tr>";

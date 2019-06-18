@@ -17,6 +17,8 @@ function GetOrders(){
 function GetOrdersByPrice(){
     var sta = document.getElementById("marketsByOrderSum");
     sta.style.display = 'none';
+    var sta = document.getElementById("statistic");
+    sta.style.display = 'block';
     $.ajax({
         type: "POST",
         dataType: "json",
@@ -299,6 +301,8 @@ function GetOrdersByRes(){
 function GetOrdersByOrderTime(){
     var sta = document.getElementById("marketsByOrderSum");
     sta.style.display = 'none';
+    var sta = document.getElementById("statistic");
+    sta.style.display = 'block';
     $.ajax({
         type: "POST",
         dataType: "json",

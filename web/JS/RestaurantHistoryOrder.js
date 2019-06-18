@@ -19,6 +19,8 @@ function ResGetOrdersByTime(){
 
     var sta = document.getElementById("membersByOrderSum");
     sta.style.display = 'none';
+    var sta = document.getElementById("statistic");
+    sta.style.display = 'block';
     $.ajax({
         type: "POST",
         dataType: "json",
@@ -217,7 +219,8 @@ function ResGetOrdersByTime(){
 function ResGetOrdersByPrice(){
     var sta = document.getElementById("membersByOrderSum");
     sta.style.display = 'none';
-
+    var sta = document.getElementById("statistic");
+    sta.style.display = 'block';
     $.ajax({
         type: "POST",
         dataType: "json",
