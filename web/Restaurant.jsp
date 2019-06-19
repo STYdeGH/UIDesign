@@ -62,30 +62,33 @@
             <div class="user-address">
                 <div class="am-cf am-padding">
                     <div class="am-fl am-cf">
-                        <strong class="am-text-danger am-text-lg">基本信息</strong>
+                        <strong class="am-text-danger am-text-lg" id="titlea">基本信息</strong>
                         &nbsp
-                        </div>
+                    </div>
                 </div>
                 <hr/>
+
+                <div id='adddish' class="info-main"></div>
+
                 <div id='main1' class="info-main">
                     <button class="am-btn am-btn-danger" onclick="EditRestaurantInfo()" id="editinfo">保存</button>
                 </div>
-                    <div style='padding-left: 2%;padding-right: 2%;' ng-show="!loading" class="shopmenu-main grid"
-                         ng-class="{grid: displayType === 'grid', list: displayType === 'list'}"
-                         style="margin-top: 0px;">
-                        <!-- ngIf: filterData === 'default' && !searchEnv -->
-                        <div class="col-2 shopmenu-food-main">
-                            <div ng-if="filterData === 'default' &amp;&amp; !searchEnv" class="ng-scope">
-                                <!-- ngRepeat: category in categorys -->
-                                <div id='main' class="shopmenu-list clearfix ng-scope"
-                                     ng-repeat="category in categorys">
-
-                                </div>
+                <div style='padding-left: 2%;padding-right: 2%;' ng-show="!loading" class="shopmenu-main grid"
+                     ng-class="{grid: displayType === 'grid', list: displayType === 'list'}"
+                     style="margin-top: 0px;">
+                    <!-- ngIf: filterData === 'default' && !searchEnv -->
+                    <div class="col-2 shopmenu-food-main">
+                        <div ng-if="filterData === 'default' &amp;&amp; !searchEnv" class="ng-scope">
+                            <!-- ngRepeat: category in categorys -->
+                            <div id='main' class="shopmenu-list clearfix ng-scope"
+                                 ng-repeat="category in categorys">
 
                             </div>
+
                         </div>
                     </div>
-                    <div id="clean"></div>
+                </div>
+                <div id="clean"></div>
                 <script type="text/javascript">
                     $(document).ready(function () {
                         $(".new-option-r").click(function () {
@@ -105,7 +108,7 @@
             </div>
             <!--底部-->
         </div>
-        </div>
+    </div>
 
 </div>
 </body>
