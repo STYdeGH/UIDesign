@@ -47,25 +47,9 @@ function memberinfo(){
             Phone.value=jo.memberPhone;
             Email.value=jo.memberEmail;
             Account.value=jo.memberAccount;
-            Balance.value=jo.memberBalance;
+            Balance.value=jo.memberBalance.toFixed(2);
             Credit.value=jo.memberCredit;
             Level.value=jo.memberLevel;
-            $.ajax({
-                type:"POST",
-                dataType:"json",
-                data:{"membername":jo.memberName,"memberid":jo.memberId},
-                url:"GetMemberAddressServlet",
-                success:function(result1){
-                    //alert("地址信息");
-                    var jo1=eval(result1);
-                    address=jo1.MemberAddress;
-                    for(var i=0;i<address.length;i++){
-                        Address.innerHTML +="<div class=\"new-mu_l2a new-p-re\">\n" +
-                            "<p class=\"new-mu_l2cw\"><input  readonly='readOnly' type='text'  value='"+address[i]+"' id='"+address[i]+"' style='border:none;width:250px'/></p></div>"
-                    }
-                    console.log(address);
-                }
-            });
         }
     });
 }
@@ -88,16 +72,19 @@ function Edit() {
     Balance = document.getElementById("balance");
     Credit = document.getElementById("credit");
     Level = document.getElementById("level");
-    Address = document.getElementById("Naddress").childNodes;
-    Add=document.getElementById("add");
+    //Address = document.getElementById("Naddress").childNodes;
+    //Add=document.getElementById("add");
+    /*
     for (var i = 1; i < Address.length; i++) {
         if(Address[i].childNodes[1].childElementCount>0) {
             addresses.push(Address[i].childNodes[1].childNodes[0].value);
         }
     }
+    */
     save = document.getElementById("save");
     //先保存除了地址外的其他信息，然后修改地址的信息；
 //将已有的地址与最新得到的地址比较，得出新增的和删除的两个数组
+    /*
     if (edit % 2 == 1) {
         Add.innerHTML+="<button onclick='addAddress()'>新增地址</button>" ;
         //编辑
@@ -126,12 +113,13 @@ function Edit() {
         save.innerText = "保存";
     } else {//保存
         Add.innerHTML="";
+         */
         NName = Name.value;
         NPassword = Password.value;
         NPhone = Phone.value;
         NEmail = Email.value;
         NAccount = Account.value;
-
+        /*
         for (var i = 1; i < Address.length; i++) {
             if (Address[i].childNodes[1].childElementCount>0) {
                 Addresses.push(Address[i].childNodes[1].childNodes[0].value);
@@ -142,6 +130,7 @@ function Edit() {
                 i--;
             }
         }
+        */
         $.ajax({
                     type: "POST",
                     dataType: "json",
@@ -158,6 +147,7 @@ function Edit() {
                     },
                     success: function (result) {
                         if (result=="fail") {
+                            /*
                             $.ajax({
                                 type: "POST",
                                 dataType: "json",
@@ -178,7 +168,9 @@ function Edit() {
                                     }
                                 }
                             });
-
+                            */
+                            var url=encodeURI("Member.jsp?~"+Id.value+"~"+NName+"~"+NPassword);
+                            window.location.href=url;
                         } else {
                             alert("修改失败");
                         }
@@ -194,9 +186,9 @@ function Edit() {
         Phone.setAttribute("readOnly", "readonly");
         Email.setAttribute("readOnly", "readonly");
         Account.setAttribute("readOnly", "readonly");
-        save.innerText = "编辑";
-    }
-    edit++;
+        //save.innerText = "编辑";
+    //}
+    //edit++;
 }
 
 function DeleteMember(){
