@@ -30,10 +30,10 @@
             <div class="am-container header">
                 <ul class="message-r">
                     <div class="topMessage home">
-                        <div class="menu-hd"><a onclick="Main()" target="_top" class="h">订餐大厅</a></div>
+                        <div class="menu-hd"><a onclick="Logout()" target="_top" class="h">退出</a></div>
                     </div>
-                    <div class="topMessage my-shangcheng">
-                        <div class="menu-hd MyShangcheng"><a href="#" target="_top" onclick="member()"><i class="am-icon-user am-icon-fw"></i>个人中心</a></div>
+                    <div class="topMessage home">
+                        <div class="menu-hd"><a onclick="DeleteMember()" target="_top" class="h">注销账号</a></div>
                     </div>
                 </ul>
             </div>
@@ -49,6 +49,9 @@
     <aside class="menu col-main-2">
         <ul>
             <li class="person">
+                <a onclick="Main()">订餐大厅</a>
+            </li>
+            <li class="person">
                 <a onclick="member()">个人中心</a>
             </li>
             <li class="person">
@@ -60,14 +63,7 @@
             <li class="person">
                 <a onclick="MemberHistoryOrders()">历史订单</a>
             </li>
-            <li class="person">
-                <a onclick="DeleteMember()">注销账号</a>
-            </li>
-            <li class="person">
-                <a onclick="Logout()">退出</a>
-            </li>
         </ul>
-
     </aside>
     <div class="col-main-10">
         <div class="main-wrap">
