@@ -63,6 +63,9 @@
             <li class="person">
                 <a onclick="DeleteMember()">注销账号</a>
             </li>
+            <li class="person">
+                <a onclick="Logout()">退出</a>
+            </li>
         </ul>
 
     </aside>
