@@ -95,9 +95,9 @@
                 <div class="am-tabs am-tabs-d2 am-margin" data-am-tabs>
 
                     <ul class="am-avg-sm-5 am-tabs-nav am-nav am-nav-tabs">
-                        <li><a onclick="GetOrdersByPrice()">按价格排序</a></li>
-                        <li><a onclick="GetOrdersByRes()">按点餐次数</a></li>
-                        <li><a onclick="GetOrdersByOrderTime()">按点餐时间排序</a></li>
+                        <li class="am-g" id="ppp"><a onclick="GetOrdersByPrice()">按价格排序</a></li>
+                        <li class="am-g" id="rrr"><a onclick="GetOrdersByRes()">按点餐次数</a></li>
+                        <li class="am-g" id="ttt"><a onclick="GetOrdersByOrderTime()">按点餐时间排序</a></li>
                     </ul>
 
                     <div class="am-tabs-bd" id="statistic" style="display:none">

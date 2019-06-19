@@ -15,6 +15,9 @@ function GetOrders(){
     GetOrdersByType("Exotic");
 }
 function GetOrdersByPrice(){
+    document.getElementById('ppp').className='am-active';
+    document.getElementById('ttt').className='am-g';
+    document.getElementById('rrr').className='am-g';
     var sta = document.getElementById("marketsByOrderSum");
     sta.style.display = 'none';
     var sta = document.getElementById("statistic");
@@ -31,7 +34,7 @@ function GetOrdersByPrice(){
         success: function (result) {
             console.log(result);
             var tt=document.getElementById("tt");
-            tt.innerHTML="<div class=\"th th-amount\">\n" +
+            /*tt.innerHTML="<div class=\"th th-amount\">\n" +
                 "                                    <td class=\"td-inner\">订单号</td>\n" +
                 "                                </div>\n" +
                 "                                <div class=\"th th-amount\">\n" +
@@ -60,12 +63,61 @@ function GetOrdersByPrice(){
                 "                                </div>\n" +
                 "                                <div class=\"th th-amount\">\n" +
                 "                                    <td class=\"td-inner\">总价</td>\n" +
-                "                                </div>";
+                "                                </div>";*/
             var Price = document.getElementById("Price");
             Price.innerHTML = "";
+
+            var str="";
+
+            str=str+"<form class='am-form'>"
+                +"<table class='order-list ng-scope' ng-show='orderList.length'>"
+
+                +"<thead>"
+                +"<tr>"
+                +"<th>下单时间</th>"
+                +"<th class='order-list-infoth'>订单内容</th>"
+                +"<th></th>"
+                +"<th>支付金额（元）</th>"
+                +"<th>状态</th>"
+                +"<th>操作</th>"
+                +"</tr>"
+                +"</thead>"
+                +"<tbody>"
+                +"<tr></tr>";
+
             if (result.length > 7) {
                 for (var i = 0; i < 8; i++) {
-                    Price.innerHTML +="<div width='100%'>" +
+                    str=str+"<tr class='timeline' order-timeline ng-repeat='item in orderList'>"
+                        +"<td class='ordertimeline-time'>"
+                        +"<p ng-bind='item.formatted_created_at | date:'HH:mm'' class='ng-binding'>"+result[i].orderTime.substr(0,16)+"</p>"
+                        //+"<i class='ordertimeline-time-icon icon-uniE65E finish ng-scope' ng-if='item.realStatus === 5'></i>"
+                        +"</td>"
+                        +"<td class='ordertimeline-avatar'>"
+                        +"<img src='image/test.jpg'>"
+                        +"</td>"
+                        +"<td class='ordertimeline-info'>"
+                        +"<p>"+result[i].OrderInfo +"</p>"
+                        +"<p>订单号："+result[i].orderID+"</p>"
+                        +"</td>"
+                        +"<td class='ordertimeline-amount'>"
+                        +"<p>"+result[i].orderPrice +"</p>"
+                        +"</td>"
+                        +"<td class='ordertimeline-status'>"
+                        +"<p>"+result[i].orderState +"</p>"
+                        +"</td>"
+                        +"<td class='ordertimeline-handle'>"
+                        //+"<a class='ordertimeline-handle-detail' onclick='getOrderInfo()'>订单详情</a>"
+
+                        +"<button type='button' class='btn btn-default' title='Popover title'" +
+                        "data-container='body' data-toggle='popover' data-placement='left'" +
+                        "data-content='左侧的 Popover 中的一些内容'>" +
+                        "左侧的 Popover" +
+                        "</button>"
+
+
+                        +"</td>"
+                        +"</tr>";
+                    /*Price.innerHTML +="<div width='100%'>" +
                         "                               <div class=\"th th-amount\">\n" +
                         "                                    <td class=\"td-inner\">"+(i+1)+"</td>\n" +
                         "                                </div>\n" +
@@ -98,12 +150,51 @@ function GetOrdersByPrice(){
                         "                                </div>" +
                         "</div>" +
                         "<hr>"
-                    Price.innerHTML +="<br><br><br><br><br><br>";
+                    Price.innerHTML +="<br><br><br><br><br><br>";*/
                 }
-                Price.innerHTML += "<hr>";
+                //Price.innerHTML += "<hr>";
             } else {
                 for (var i = 0; i < result.length; i++) {
-                    Price.innerHTML +="<div width='100%'>" +
+                    str=str+"<tr class='timeline' order-timeline ng-repeat='item in orderList'>"
+                        +"<td class='ordertimeline-time'>"
+                        +"<p ng-bind='item.formatted_created_at | date:'HH:mm'' class='ng-binding'>"+result[i].orderTime.substr(0,16)+"</p>"
+                        //+"<i class='ordertimeline-time-icon icon-uniE65E finish ng-scope' ng-if='item.realStatus === 5'></i>"
+                        +"</td>"
+                        +"<td class='ordertimeline-avatar'>"
+                        +"<img src='image/test.jpg'>"
+                        +"</td>"
+                        +"<td class='ordertimeline-info'>"
+                        +"<p>"+result[i].OrderInfo +"</p>"
+                        +"<p>订单号："+result[i].orderID+"</p>"
+                        +"</td>"
+                        +"<td class='ordertimeline-amount'>"
+                        +"<p>"+result[i].orderPrice +"</p>"
+                        +"</td>"
+                        +"<td class='ordertimeline-status'>"
+                        +"<p>"+result[i].orderState +"</p>"
+                        +"</td>"
+                        +"<td class='ordertimeline-handle'>"
+                        //+"<a class='ordertimeline-handle-detail' onclick='getOrderInfo()'>订单详情</a>"
+
+                        +"	<div>"
+                        //+"		<div class='am-btn-group am-btn-group-xs'>"
+
+                        +"<a class='ordertimeline-handle-detail' onclick='getOrderInfo()'>订单详情</a>"
+                        //+"			<button "
+                        //+"				class='am-btn am-btn-default am-btn-xs am-hide-sm-only' id='"+i+"' onclick='getOrderInfo("+result[i].orderID+")'>"
+                        //+"				<span class='am-icon-trash-o'></span> 删除"
+                        //+"			</button>"
+                        //+"		</div>"
+                        +"	</div>"
+
+                        +"</td>"
+                        +"</tr>"
+
+                        +"<tr class='detail-view' style='display: none;'>"
+                        +"<td colspan='7'>"
+                        +"</td>"
+                        +"</tr>";
+                    /*Price.innerHTML +="<div width='100%'>" +
                         "                               <div class=\"th th-amount\">\n" +
                         "                                    <td class=\"td-inner\">"+(i+1)+"</td>\n" +
                         "                                </div>\n" +
@@ -136,15 +227,25 @@ function GetOrdersByPrice(){
                         "                                </div>" +
                         "</div>" +
                         "<hr>"
-                    Price.innerHTML +="<br><br><br><br><br><br>";
+                    Price.innerHTML +="<br><br><br><br><br><br>";*/
                 }
-                Price.innerHTML += "<hr>";
+                //Price.innerHTML += "<hr>";
             }
+            str=str+ "</tbody>"
+                +"</table>"
+                +"</form>";
+            Price.innerHTML+=str;
         }
     })
 }
 function GetOrdersByRes(){
     var thisURL=decodeURI(window.location.href);
+
+    document.getElementById('rrr').className='am-active';
+    document.getElementById('ppp').className='am-g';
+    document.getElementById('ttt').className='am-g';
+
+
     var id=thisURL.split('~')[1];
     var name=thisURL.split('~')[2];
     var password=thisURL.split('~')[3];
@@ -299,6 +400,9 @@ function GetOrdersByRes(){
     })
 }
 function GetOrdersByOrderTime(){
+    document.getElementById('ttt').className='am-active';
+    document.getElementById('ppp').className='am-g';
+    document.getElementById('rrr').className='am-g';
     var sta = document.getElementById("marketsByOrderSum");
     sta.style.display = 'none';
     var sta = document.getElementById("statistic");

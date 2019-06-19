@@ -66,7 +66,7 @@ function cancelbeforepay(orderid){
             console.log(result);
             if(result=="success"){
                 var url=encodeURI("MemberNowOrder.jsp?~"+id+"~"+memname+"~"+mempassword);
-                window.location.href=url;
+                window.location.reload();
             }else{
                 alert("取消失败");
             }
@@ -90,7 +90,7 @@ function payorder(orderid,orderprice){
             if(result=="Success"){
                 alert("支付成功");
                 var url=encodeURI("MemberNowOrder.jsp?~"+id+"~"+memname+"~"+mempassword);
-                window.location.href=url;
+                window.location.reload();
             }else{
                 if(result=="Fail"){
                     alert("支付失败");
@@ -113,7 +113,7 @@ function OrderArrived(orderid){
         success: function (result) {
             if(result=="success"){
                 var url=encodeURI("MemberNowOrder.jsp?~"+id+"~"+memname+"~"+mempassword);
-                window.location.href=url;
+                window.location.reload();
             }else{
                 alert(result)
             }
@@ -132,7 +132,7 @@ function cancelafterpay(orderid){
         success: function (result) {
             if(result=="success"){
                 var url=encodeURI("MemberNowOrder.jsp?~"+id+"~"+memname+"~"+mempassword);
-                window.location.href=url;
+                window.location.reload();
             }else{
                 alert(result)
             }
@@ -303,7 +303,7 @@ function GetNowOrders(){
                             +"<p>"+result[i].orderState +"</p>"
                             +"</td>"
                             +"<td class='ordertimeline-handle'>"
-                            +"<div><button id='time"+result[i].orderID+"' onclick='payorder("+result[i].orderID+","+result[i].orderPrice+")'></button>"
+                            +"<div><button id='time"+result[i].orderID+"' onclick='OrderArrived("+result[i].orderID+","+result[i].orderPrice+")'></button>"
                             +"<button onclick='cancelafterpay("+result[i].orderID+")'>取消订单</button></div>"
                             +"</td>"
                             +"</tr>";
