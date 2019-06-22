@@ -37,14 +37,24 @@ public class DiscountDaoImpl implements DiscountDao {
         date=""+y+"-"+m+"-"+d;
         try {
             con = daoHelper.getConnection();
-            stmt=con.prepareStatement("Select * From Discount Where ResChaptcha = '"+Chaptcha+"';");
+            stmt=con.prepareStatement("Select * From Discount Where ResChaptcha = '"+Chaptcha+"'and Result='success';");
             result=stmt.executeQuery();
             while(result.next()){
                 Discount discount=new Discount();
+                int id = result.getInt("DiscountID");
+                FullPrice = result.getInt("FullPrice");
+                MinusPrice = result.getInt("MinusPrice");
+                Result = result.getString("Result");
+                discount.setFull(FullPrice);
+                discount.setMinus(MinusPrice);
+                discount.setResult(Result+"-"+String.valueOf(id));
+                Discounts.add(discount);
+                Discounts.add(discount);
                 //比较时间
-                stmt1=con.prepareStatement("Select * From DiscountTime Where DiscountID = '"+result.getInt("DiscountID")+"';");
+                /*stmt1=con.prepareStatement("Select * From DiscountTime Where DiscountID = '"+result.getInt("DiscountID")+"';");
                 result1=stmt1.executeQuery();
                 while(result1.next()) {
+
                     java.util.Date starttime = new java.util.Date(result1.getTimestamp("StartTime").getTime());
                     java.util.Date endtime = new java.util.Date(result1.getTimestamp("EndTime").getTime());
                     DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
@@ -61,25 +71,20 @@ public class DiscountDaoImpl implements DiscountDao {
 
                             //System.out.println("FullPrice:"+result.getInt("FullPrice"));
                             //System.out.println("MinusPrice:"+result.getInt("MinusPrice"));
-                            //System.out.println("Result:"+result.getString("Result"));
-                            FullPrice = result.getInt("FullPrice");
-                            MinusPrice = result.getInt("MinusPrice");
-                            Result = result.getString("Result");
-                            java.util.Date StartTime=new java.util.Date(result1.getTimestamp("StartTime").getTime());
-                            java.util.Date EndTime=new java.util.Date(result1.getTimestamp("EndTime").getTime());
-                            discount.setFull(FullPrice);
-                            discount.setMinus(MinusPrice);
-                            discount.setResult(Result);
-                            discount.setStartTime(result1.getString("StartTime"));
+                            //System.out.println("Result:"+result.getString("Result"));*/
+
+                            /*java.util.Date StartTime=new java.util.Date(result1.getTimestamp("StartTime").getTime());
+                            java.util.Date EndTime=new java.util.Date(result1.getTimestamp("EndTime").getTime());*/
+
+                            /*discount.setStartTime(result1.getString("StartTime"));
                             discount.setEndTime(result1.getString("EndTime"));
-                            Discounts.add(discount);
                         }
                     } catch (Exception exception) {
                         exception.printStackTrace();
                     }
-                }
+                }*/
             }
-            if(Discounts.size()>1) {
+            /*if(Discounts.size()>1) {
                 for (int i = 0; i < Discounts.size(); i++) {
                     for (int j = 0; j < Discounts.size()-1;j++){
                         if(Discounts.get(j).getFull()>Discounts.get(j+1).getFull()){
@@ -97,8 +102,8 @@ public class DiscountDaoImpl implements DiscountDao {
                     System.out.println(Discounts.get(i).getFull());
                     System.out.println(Discounts.get(i).getMinus());
                 }
-                */
-            }
+
+            }*/
             daoHelper.closeConnection(con);
             daoHelper.closePreparedStatement(stmt);
             daoHelper.closeResult(result);
@@ -140,7 +145,7 @@ public class DiscountDaoImpl implements DiscountDao {
         ResultSet result=null;
         ResultSet result1=null;
         boolean exist=false;
-        boolean add=false;
+        int add=0;
         boolean add1=false;
         int DiscountID=0,TimeID=0;
        ArrayList<String> Result=new ArrayList<>();
@@ -185,21 +190,21 @@ public class DiscountDaoImpl implements DiscountDao {
                     DiscountID=result.getInt("Max(DiscountID)");
                     DiscountID=DiscountID+1;
                 }
-                stmt=con.prepareStatement("select Max(ID) from DiscountTime");
-                result=stmt.executeQuery();
-                while(result.next()){
+                //stmt=con.prepareStatement("select Max(ID) from DiscountTime");
+                //result=stmt.executeQuery();
+                /*while(result.next()){
                     TimeID=result.getInt("Max(ID)");
                     TimeID=TimeID+1;
                     System.out.println("TimeID:"+TimeID);
-                }
+                }*/
                 stmt=con.prepareStatement("insert into Discount(DiscountID,ResChaptcha,FullPrice,MinusPrice,Result) VALUES ("+DiscountID+",'"+chaptcha+"',"+Integer.parseInt(FullPrice)+","+Integer.parseInt(MinusPrice)+",'success')");
-                add=stmt.execute();
-                stmt1=con.prepareStatement("insert into DiscountTime(ID,DiscountID,StartTime,EndTime) VALUES ("+TimeID+",'"+DiscountID+"','"+StartTime+"','"+EndTime+"')");
-                add1=stmt1.execute();
-                if(!add||!add1){
+                add=stmt.executeUpdate();
+                //stmt1=con.prepareStatement("insert into DiscountTime(ID,DiscountID,StartTime,EndTime) VALUES ("+TimeID+",'"+DiscountID+"','"+StartTime+"','"+EndTime+"')");
+                //add1=stmt1.execute();
+                if(add == 0){
                     Result.add("fail");
                 }else{
-                    Result.add("success");
+                    Result.add("success"+"-"+String.valueOf(DiscountID));
                 }
             }
             daoHelper.closeConnection(con);
@@ -308,5 +313,89 @@ public class DiscountDaoImpl implements DiscountDao {
             e.printStackTrace();
     }
         return delete;
+    }
+
+    @Override
+    public ArrayList<Discount> GetFailRestaurantDiscount(String Chaptcha) throws Exception{
+        Connection con=null;
+        PreparedStatement stmt=null;
+        ResultSet result=null;
+
+        ArrayList<Discount> discounts=new ArrayList<>();
+
+        try {
+            con = daoHelper.getConnection();
+            stmt=con.prepareStatement("Select * From Discount Where ResChaptcha = '"+Chaptcha+"' and Result = 'fail'");
+            result=stmt.executeQuery();
+            while(result.next()) {
+                Discount discount=new Discount();
+                String ID=result.getString("DiscountID");
+                System.out.println(ID);
+                String chaptcha=result.getString("ResChaptcha");
+                int full=result.getInt("FullPrice");
+                int minus=result.getInt("MinusPrice");
+                discount.setMinus(minus);
+                discount.setFull(full);
+                discount.setChaptcha(chaptcha);
+                discount.setResult("fail"+"-"+ID);
+                discounts.add(discount);
+            }
+
+        } catch (SQLException e) {
+            daoHelper.closeConnection(con);
+            daoHelper.closePreparedStatement(stmt);
+            daoHelper.closeResult(result);
+            e.printStackTrace();
+        }
+
+        return discounts;
+    }
+
+    @Override
+    public String putOnSale(int id) throws Exception{
+        Connection con = null;
+        PreparedStatement stmt = null;
+        int res = 0;
+        try {
+            con = daoHelper.getConnection();
+            stmt = con.prepareStatement("update Discount SET Result ='success' WHERE DiscountID = " + id + ";");
+            res = stmt.executeUpdate();
+            daoHelper.closeConnection(con);
+            daoHelper.closePreparedStatement(stmt);
+        } catch (SQLException e) {
+            daoHelper.closeConnection(con);
+            daoHelper.closePreparedStatement(stmt);
+            e.printStackTrace();
+        }
+        if(res == 0){
+            return "fail";
+        }
+        else{
+            return "success";
+        }
+    }
+
+    @Override
+    public String putOffSale(int id) throws Exception{
+        Connection con = null;
+        PreparedStatement stmt = null;
+        int res = 0;
+        try {
+            con = daoHelper.getConnection();
+            stmt = con.prepareStatement("update Discount SET Result ='fail' WHERE DiscountID = " + id + ";");
+            res = stmt.executeUpdate();
+            daoHelper.closeConnection(con);
+            daoHelper.closePreparedStatement(stmt);
+        } catch (SQLException e) {
+            daoHelper.closeConnection(con);
+            daoHelper.closePreparedStatement(stmt);
+            e.printStackTrace();
+        }
+        if(res == 0){
+            return "fail";
+        }
+        else{
+            return "success";
+        }
     }
 }

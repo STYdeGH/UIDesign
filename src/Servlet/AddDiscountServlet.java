@@ -50,6 +50,7 @@ public class AddDiscountServlet extends HttpServlet {
         DiscountService discountService=new DiscountServiceImpl();
         try {
             Result=discountService.AddRestaurantDiscount(FullPrice,MinusPrice,chaptcha,StartTime,EndTime);
+            System.out.println(Result);
             PrintWriter write = response.getWriter();
             Gson gson=new Gson();
             String str=gson.toJson(Result);

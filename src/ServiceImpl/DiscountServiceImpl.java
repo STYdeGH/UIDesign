@@ -39,4 +39,18 @@ public class DiscountServiceImpl implements DiscountService {
         return discountDao.DeleteDiscount(chaptcha, full, minus);
     }
 
+    @Override
+    public ArrayList<Discount> GetFailRestaurantDiscount(String Chaptcha) throws Exception{
+        return discountDao.GetFailRestaurantDiscount(Chaptcha);
+    }
+
+    @Override
+    public String putOnSale(int id) throws Exception{
+        return discountDao.putOnSale(id);
+    }
+
+    @Override
+    public String putOffSale(int id) throws Exception{
+        return discountDao.putOffSale(id);
+    }
 }

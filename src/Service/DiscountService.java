@@ -10,4 +10,9 @@ public interface DiscountService {
     public boolean SuccessDiscount(int fullprice,int minusprice,String chaptcha,int ID)throws Exception;
     public boolean FailDiscount(int fullprice,int minusprice,String chaptcha,int ID)throws Exception;
     public boolean DeleteDiscount(String chaptcha,int full,int minus)throws Exception;
+
+    //新增的
+    public ArrayList<Discount> GetFailRestaurantDiscount(String Chaptcha) throws Exception;
+    public String putOnSale(int id) throws Exception;
+    public String putOffSale(int id) throws Exception;
 }

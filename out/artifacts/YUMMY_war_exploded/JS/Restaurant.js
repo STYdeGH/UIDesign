@@ -531,10 +531,13 @@ function addpp() {
 function Discount() {
     //显示已有的优惠
     //新增优惠
+
     var thisURL = decodeURI(window.location.href);
-    chaptcha = thisURL.split('~')[2];
-    var main1 = document.getElementById("main1");
-    main1.innerHTML = "";
+    var name = thisURL.split('~')[1];
+    var chaptcha = thisURL.split('~')[2];
+    var url = encodeURI("MarketDiscount.jsp?~" + name + "~" + chaptcha);
+    window.location.href = url;
+   /* main1.innerHTML = "";
     //得到已有的优惠
     $.ajax({
         type: "POST",
@@ -582,7 +585,7 @@ function Discount() {
                     "<button onclick='deleteDiscount(" + result[i].Full + "," + chaptcha + "," + result[i].Minus + ")'>删除</button>";
             }
         }
-    })
+    })*/
 }
 
 /*
