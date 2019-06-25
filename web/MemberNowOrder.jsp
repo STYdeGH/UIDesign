@@ -23,17 +23,29 @@
 </head>
 <body onload="GetNowOrders()">
 
-<header>
+<header style="background-color: #68c6de;width: 1422px;height: 40px">
     <article>
         <div class="mt-logo">
             <!--顶部导航条 -->
             <div class="am-container header">
+
                 <ul class="message-r">
                     <div class="topMessage home">
-                        <div class="menu-hd"><a onclick="Logout()" target="_top" class="h">退出</a></div>
+                        <p id="logoP" style="font-family:Times New Roman,Monospace,sans-serif;font-size:2rem;position:relative;left:-950px;top:3px;color: white;font-weight: bolder">YUMMY</p>
                     </div>
                     <div class="topMessage home">
-                        <div class="menu-hd"><a onclick="DeleteMember()" target="_top" class="h">注销账号</a></div>
+                        <!--<div class="menu-hd"><a onclick="Logout()" target="_top" class="h" style="position:relative;left:20px;font-weight:bold;color: palevioletred">退出</a></div>-->
+                        <button onclick="Logout()" class="am-btn am-btn-small am-btn-warning" style="outline: none;border-radius: 5px;position:relative;top:4px;left:40px;">
+                            <i class="am-icon-sign-out"></i>
+                            退出
+                        </button>
+                    </div>
+                    <div class="topMessage home">
+                        <!--<div class="menu-hd"><a onclick="DeleteMember()" target="_top" class="h" style="position:relative;left:30px;font-weight: bold;color: palevioletred">注销</a></div>-->
+                        <button onclick="DeleteMember()" class="am-btn am-btn-small am-btn-default" style="outline: none;border-radius: 5px;position:relative;top:4px;left:55px;">
+                            <i class="am-icon-frown-o"></i>
+                            注销
+                        </button>
                     </div>
                 </ul>
             </div>
@@ -42,8 +54,6 @@
         </div>
     </article>
 </header>
-
-<b class="line"></b>
 
 <div class="center">
     <aside class="menu col-main-2">
@@ -58,7 +68,7 @@
                 <a onclick="Memberaddress()">地址管理</a>
             </li>
             <li class="person">
-                <a onclick="MemberNowOrder()">当前订单</a>
+                <a onclick="MemberNowOrder()" style="font-size: 1.5rem;font-weight: bold;color: #F37B1D">当前订单</a>
             </li>
             <li class="person">
                 <a onclick="MemberHistoryOrders()">历史订单</a>

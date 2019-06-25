@@ -26,61 +26,31 @@
 会员信息：用户ID、用户密码、电话、姓名、送餐地点（可多个）、邮箱
 历史订单（list）、当前订单、账号、账号余额、会员级别
 --%>
-    <!--
-    <div>
-        <label>会员地址：</label>
-        <div id="add">
-        </div>
-        <div id="Naddress">
-        </div>
-        <label id="addr-show">
-        </label>
-    </div>
-    <br/>
-
-    <div class="tip am-round" id="newaddress" style="display: none;border:solid">
- -->
-    <!--省份选择-->
-    <!--
-    <select id="prov" onchange="showCity(this)">
-        <option>=请选择省份=</option>
-
-    </select>
-    -->
-    <!--城市选择-->
-    <!--
-    <select id="city" onchange="showCountry(this)">
-        <option>=请选择城市=</option>
-    </select>
--->
-    <!--县区选择-->
-    <!--
-    <select id="country" onchange="selecCountry(this)">
-        <option>=请选择县区=</option>
-    </select>
-    <input type="text" value="" id="ANewAddress"/>
-    <div>
-        </div>
-        <div class="tip_button">
-            <button type="button" class="btn met1" onClick="showAddr()" id="button-show" >确定</button>
-            <button class="am-btn am-btn-default am-round am-btn-secondary " value="取消" name="cancel" class="cancel" onclick="Cancel()">取消</button>
-        </div>
-    </div>
-    -->
-</div>
 
 <!--头 -->
-<header>
+<header style="background-color: #68c6de;width: 1403px;height: 40px">
     <article>
         <div class="mt-logo">
             <!--顶部导航条 -->
             <div class="am-container header">
+
                 <ul class="message-r">
                     <div class="topMessage home">
-                        <div class="menu-hd"><a onclick="Logout()" target="_top" class="h">退出</a></div>
+                        <p id="logoP" style="font-family:Times New Roman,Monospace,sans-serif;font-size:2rem;position:relative;left:-950px;top:3px;color: white;font-weight: bolder">YUMMY</p>
                     </div>
                     <div class="topMessage home">
-                        <div class="menu-hd"><a onclick="DeleteMember()" target="_top" class="h">注销账号</a></div>
+                        <!--<div class="menu-hd"><a onclick="Logout()" target="_top" class="h" style="position:relative;left:20px;font-weight:bold;color: palevioletred">退出</a></div>-->
+                        <button onclick="Logout()" class="am-btn am-btn-small am-btn-warning" style="outline: none;border-radius: 5px;position:relative;top:6px;left:40px;">
+                            <i class="am-icon-sign-out"></i>
+                            退出
+                        </button>
+                    </div>
+                    <div class="topMessage home">
+                        <!--<div class="menu-hd"><a onclick="DeleteMember()" target="_top" class="h" style="position:relative;left:30px;font-weight: bold;color: palevioletred">注销</a></div>-->
+                        <button onclick="DeleteMember()" class="am-btn am-btn-small am-btn-default" style="outline: none;border-radius: 5px;position:relative;top:6px;left:55px;">
+                            <i class="am-icon-frown-o"></i>
+                            注销
+                        </button>
                     </div>
                 </ul>
             </div>
@@ -88,8 +58,9 @@
         </div>
         </div>
     </article>
+
 </header>
-<b class="line"></b>
+
 <div class="center">
     <div class="col-main">
         <div class="main-wrap">
@@ -203,7 +174,7 @@
                 <a onclick="Main()">订餐大厅</a>
             </li>
             <li class="person">
-                <a onclick="member()">个人中心</a>
+                <a onclick="member()" style="font-size: 1.5rem;font-weight: bold;color: #F37B1D">个人中心</a>
             </li>
             <li class="person">
                 <a onclick="Memberaddress()">地址管理</a>

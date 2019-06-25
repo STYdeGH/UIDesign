@@ -173,7 +173,7 @@ color: #F5F5F2;font-size: 14px;cursor:pointer;}
 
 /*侧边栏*/
 aside{ display:block;width:130px; float:left;margin-left: -100%;padding-top:10px;}
-aside ul{ margin-left:10px;margin-right:-10px;padding:0px 8px;font-size:14px ;background: #fff;border-top: 5px solid #FEC4D7;}
+aside ul{ margin-left:10px;margin-right:-10px;padding:0px 8px;font-size:14px ;background: #fff;border-top: 5px solid #68c6de;}
 aside a{display: block;overflow: hidden;text-decoration: none;line-height: 28px;color: #000;height: 28px;}
 aside ul li{text-align: center;}
 aside ul li.active a{color: #F69}
@@ -184,7 +184,7 @@ li.person{border-bottom:1px solid #F5F8FA ;padding-bottom:10px;padding-top: 10px
 .col-main {float:left;width:100%;min-height: 1px;background: none;padding-bottom: 0px;}
 .main-wrap {position: relative; margin-left:150px;overflow: hidden;min-height:585px;background-color:#fff;}
 .am-fl.am-cf small{width: auto;}
-.am-padding {margin:20px 0px ;}
+.am-padding {margin:8px 0px ;}
 .am-text-danger {color: #000}
 /*底部*/
 .footer {text-align:left; display:block;position: relative;margin: 0px auto; padding: 7px 0px 9px;border-top: 2px solid #FF5400; margin-top:20px;}

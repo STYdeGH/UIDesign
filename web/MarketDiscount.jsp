@@ -69,7 +69,7 @@
                 </div>
                 <hr/>
 
-                <div class="am-tabs am-tabs-d2 am-margin" data-am-tabs>
+                <div class="am-tabs am-tabs-d2 am-margin data-am-tabs">
 
                     <ul class="am-avg-sm-5 am-tabs-nav am-nav am-nav-tabs">
                         <li class=""><a onclick="getAllSusDis()">已上架</a></li>
