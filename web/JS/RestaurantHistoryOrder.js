@@ -13,6 +13,9 @@ function RestaurantInfo(){
     window.location.href=url;
 }
 function ResGetOrdersByTime(){
+    document.getElementById('ttt').className='am-active';
+    document.getElementById('ppp').className='am-g';
+    document.getElementById('rrr').className='am-g';
     var thisURL=decodeURI(window.location.href);
     var name=thisURL.split('~')[1];
     chaptcha=thisURL.split('~')[2];
@@ -217,6 +220,9 @@ function ResGetOrdersByTime(){
     })
 }
 function ResGetOrdersByPrice(){
+    document.getElementById('ppp').className='am-active';
+    document.getElementById('ttt').className='am-g';
+    document.getElementById('rrr').className='am-g';
     var sta = document.getElementById("membersByOrderSum");
     sta.style.display = 'none';
     var sta = document.getElementById("statistic");
@@ -418,6 +424,9 @@ function ResGetOrdersByPrice(){
     })
 }
 function ResGetOrdersByMember(){
+    document.getElementById('rrr').className='am-active';
+    document.getElementById('ppp').className='am-g';
+    document.getElementById('ttt').className='am-g';
     var sta = document.getElementById("membersByOrderSum");
     sta.style.display = 'block';
     var sta = document.getElementById("statistic");

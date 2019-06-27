@@ -27,6 +27,7 @@
 <script type="text/javascript" src="JS/macarons.js"></script>
 <script type="text/javascript" src="JS/jquery.min.js"></script>
 <script type="text/javascript" src="JS/bootstrap.min.js"></script>
+<script type="text/javascript" src="JS/popper.min.js"></script>
 <script type="text/javascript" src="JS/MemberHistoryOrders.js"></script>
 <html>
 <head>
