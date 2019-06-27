@@ -29,11 +29,37 @@
     <title>优惠信息</title>
 </head>
 <body onload="getAllSusDis()">
-<header>
+<header  style="background-color: #68c6de;width: 1422px;height: 40px">
     <article>
+        <div class="mt-logo">
+            <!--顶部导航条 -->
+            <div class="am-container header">
+
+                <ul class="message-r">
+                    <div class="topMessage home">
+                        <p id="logoP" style="font-family:Times New Roman,Monospace,sans-serif;font-size:3rem;position:relative;left:-1020px;top:3px;color: white;font-weight: bolder">YUMMY</p>
+                    </div>
+                    <!--<div class="topMessage home">
+                        <div class="menu-hd"><a onclick="Logout()" target="_top" class="h" style="position:relative;left:20px;font-weight:bold;color: palevioletred">退出</a></div>
+                        <button onclick="Logout()" class="am-btn am-btn-small am-btn-warning" style="outline: none;border-radius: 5px;position:relative;top:6px;left:40px;">
+                            <i class="am-icon-sign-out"></i>
+                            退出
+                        </button>
+                    </div>-->
+                    <div class="topMessage home">
+                        <!--<div class="menu-hd"><a onclick="DeleteMember()" target="_top" class="h" style="position:relative;left:30px;font-weight: bold;color: palevioletred">注销</a></div>-->
+                        <button onclick="RestaurantLogout()" class="am-btn am-btn-small am-btn-warning" style="outline: none;border-radius: 5px;position:relative;top:6px;left:55px;">
+                            <i class="am-icon-sign-out"></i>
+                            退出
+                        </button>
+                    </div>
+                </ul>
+            </div>
+            <!--悬浮搜索框-->
+        </div>
+        </div>
     </article>
 </header>
-<b class="line"></b>
 
 <div class="center">
 
@@ -44,16 +70,16 @@
                     <a onclick="restaurantInfo()">餐厅信息</a>
                 </li>
                 <li class="person">
-                    <a onclick="dishes()">菜单</a>
+                    <a onclick="dishes()">我的菜单</a>
                 </li>
                 <li class="person">
-                    <a onclick="disself()">优惠</a>
+                    <a onclick="disself()" style="font-size: 2rem;font-weight: bold;color: #F37B1D">优惠信息</a>
                 </li>
                 <li class="person">
                     <a onclick="GetOrders()">历史订单</a>
                 </li>
                 <li class="person">
-                    <a onclick="RestaurantLogout()">退出</a>
+                    <a onclick="RestaurantLogout()" style="display: none">退出</a>
                 </li>
             </ul>
 
@@ -61,19 +87,19 @@
         <div class="main-wrap">
             <div class="user-address">
 
-                <div class="am-cf am-padding">
+                <!--<div class="am-cf am-padding">
                     <div class="am-fl am-cf">
                         <strong class="am-text-danger am-text-lg" id="titlea">优惠信息</strong>
                         &nbsp
                     </div>
                 </div>
-                <hr/>
+                <hr/>-->
 
                 <div class="am-tabs am-tabs-d2 am-margin data-am-tabs">
 
                     <ul class="am-avg-sm-5 am-tabs-nav am-nav am-nav-tabs">
-                        <li class=""><a onclick="getAllSusDis()">已上架</a></li>
-                        <li class=""><a onclick="getAllFailDis()">已下架</a></li>
+                        <li id="up" class="am-active"><a onclick="getAllSusDis()">已上架</a></li>
+                        <li id="down" class=""><a onclick="getAllFailDis()">已下架</a></li>
                     </ul>
 
                 </div>
@@ -138,13 +164,28 @@
         var thisURL = decodeURI(window.location.href);
         name = thisURL.split('~')[1];
         chaptcha = thisURL.split('~')[2];
-        var url = encodeURI("Restaurant.jsp?~" + name + "~" + chaptcha);
+        var url = encodeURI("MarketDiscount.jsp?~" + name + "~" + chaptcha);
+        window.location.href = url;
+    }
+</script>
+
+<script>
+    function GetOrders() {
+        var thisURL = decodeURI(window.location.href);
+        name = thisURL.split('~')[1];
+        chaptcha = thisURL.split('~')[2];
+        var url = encodeURI("RestaurantHistoryOrder.jsp?~" + name + "~" + chaptcha);
         window.location.href = url;
     }
 </script>
 
 <script>
     function getAllSusDis() {
+        var upDiv = document.getElementById("up");
+        upDiv.className = "am-active";
+        var downDiv = document.getElementById("down");
+        downDiv.className = "";
+
         var thisURL = decodeURI(window.location.href);
         name = thisURL.split('~')[1];
         chaptcha = thisURL.split('~')[2];
@@ -200,6 +241,11 @@
 
 <script>
     function getAllFailDis() {
+        var upDiv = document.getElementById("up");
+        upDiv.className = "";
+        var downDiv = document.getElementById("down");
+        downDiv.className = "am-active";
+
         var thisURL = decodeURI(window.location.href);
         name = thisURL.split('~')[1];
         chaptcha = thisURL.split('~')[2];

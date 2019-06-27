@@ -111,7 +111,7 @@
                 <!--标题 -->
                 <div class="am-cf am-padding">
                     <div class="am-fl am-cf">
-                        <strong class="am-text-danger am-text-lg">地址管理</strong> /
+                        <strong class="am-text-danger am-text-lg" style="font-weight: bolder;font-size: 1.3rem">地址管理</strong> /
                         <small>Address&nbsp;list</small>
                     </div>
                 </div>
@@ -135,7 +135,7 @@
 
                         <!--标题 -->
                         <div class="am-cf am-padding">
-                            <div class="am-fl am-cf"><strong class="am-text-danger am-text-lg">新增地址</strong> /
+                            <div class="am-fl am-cf"><strong class="am-text-danger am-text-lg" style="font-weight: bolder;font-size: 1.3rem">新增地址</strong> /
                                 <small>Add&nbsp;address</small>
                             </div>
                         </div>
@@ -163,16 +163,20 @@
                                 </div>
 
                                 <div class="am-form-group">
-                                    <label for="ANewAddress" class="am-form-label">详细地址</label>
+                                    <label for="ANewAddress" class="am-form-label" style="position: relative;top: -3px">详细地址</label>
                                     <div class="am-form-content">
                                         <textarea class="" rows="3" id="ANewAddress" placeholder="输入详细地址"></textarea>
-                                        <small>100字以内写出你的详细地址...</small>
+                                        <small style="color: #68c6de;font-weight: bold">100字以内写出你的详细地址...</small>
                                     </div>
                                 </div>
 
                                 <div class="am-form-group">
                                     <div class="am-u-sm-9 am-u-sm-push-3">
-                                        <a class="am-btn am-btn-danger" onClick="showAddr()">保存</a>
+                                        <button onClick="showAddr()" id="save" class="am-btn am-btn-small am-btn-danger" style="outline: none;border-radius: 5px;position:relative;top:-30px;left:430px;">
+                                            <i class="am-icon-save"></i>
+                                            保存
+                                        </button>
+                                        <!--<a class="am-btn am-btn-danger" onClick="showAddr()">保存</a>-->
                                     </div>
                                 </div>
                             </form>

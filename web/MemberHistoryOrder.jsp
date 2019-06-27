@@ -27,13 +27,12 @@
 <script type="text/javascript" src="JS/macarons.js"></script>
 <script type="text/javascript" src="JS/jquery.min.js"></script>
 <script type="text/javascript" src="JS/bootstrap.min.js"></script>
-<script type="text/javascript" src="JS/popper.min.js"></script>
 <script type="text/javascript" src="JS/MemberHistoryOrders.js"></script>
 <html>
 <head>
     <title>会员历史订单</title>
 </head>
-<body>
+<body onload="GetOrdersByPrice()">
 
 <header style="background-color: #68c6de;width: 1422px;height: 40px">
     <article>
@@ -96,10 +95,10 @@
             <div class="user-order">
 
                 <!--标题 -->
-                <div class="am-cf am-padding">
+                <!--<div class="am-cf am-padding">
                     <div class="am-fl am-cf"><strong class="am-text-danger am-text-lg">订单管理</strong> / <small>Order</small></div>
                 </div>
-                <hr/>
+                <hr/>-->
 
                 <div class="am-tabs am-tabs-d2 am-margin" data-am-tabs>
 

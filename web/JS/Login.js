@@ -140,7 +140,7 @@ function Member(){
         "        </div>\n" +
         "      </form>\n" +
         "      <div class=\"am-form\">\n" +
-        "        <button class=\"am-form am-btn am-btn-secondary\"  onclick=\"MemberLogin()\" type=\"submit\">登录</button>\n" +
+        "        <button class=\"am-form am-btn am-btn-secondary\"  onclick=\"MemberLogin()\" type=\"submit\" style=\"outline: none\">登录</button>\n" +
         "      </div>";
 }
 
@@ -169,7 +169,7 @@ function Restaurant(){
         "        </div>\n" +
         "      </form>\n" +
         "      <div class=\"am-form\">\n" +
-        "        <button class=\"am-form am-btn am-btn-secondary\"  onclick=\"RestaurantLogin()\" type=\"submit\">登录</button>\n" +
+        "        <button class=\"am-form am-btn am-btn-secondary\"  onclick=\"RestaurantLogin()\" type=\"submit\" style=\"outline: none\">登录</button>\n" +
         "      </div>";
 }
 
@@ -199,6 +199,6 @@ function Yummy(){
         "        </div>\n" +
         "      </form>\n" +
         "      <div class=\"am-form\">\n" +
-        "        <button class=\"am-form am-btn am-btn-secondary\"  onclick=\"YummyLogin()\" type=\"submit\">登录</button>\n" +
+        "        <button class=\"am-form am-btn am-btn-secondary\"  onclick=\"YummyLogin()\" type=\"submit\" style=\"outline: none\">登录</button>\n" +
         "      </div>";
 }

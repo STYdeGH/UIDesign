@@ -15,257 +15,265 @@ function GetOrders(){
     GetOrdersByType("Exotic");
 }
 function GetOrdersByPrice(){
-    document.getElementById('ppp').className='am-active';
-    document.getElementById('ttt').className='am-g';
-    document.getElementById('rrr').className='am-g';
-    var sta = document.getElementById("marketsByOrderSum");
-    sta.style.display = 'none';
-    var sta = document.getElementById("statistic");
-    sta.style.display = 'block';
-    $.ajax({
-        type: "POST",
-        dataType: "json",
-        url: "MembergetOrderbyPriceServlet",
-        cache: false,
-        data: {
-            "MemberID": id,
-            "MemberName":name,
-        },
-        success: function (result) {
-            console.log(result);
-            var tt=document.getElementById("tt");
-            /*tt.innerHTML="<div class=\"th th-amount\">\n" +
-                "                                    <td class=\"td-inner\">订单号</td>\n" +
-                "                                </div>\n" +
-                "                                <div class=\"th th-amount\">\n" +
-                "                                    <td class=\"td-inner\">餐厅</td>\n" +
-                "                                </div>\n" +
-                "                                <div class=\"th th-amount\">\n" +
-                "                                    <td class=\"td-inner\">餐厅地址</td>\n" +
-                "                                </div>\n" +
-                "                                <div class=\"th th-amount\">\n" +
-                "                                    <td class=\"td-inner\">餐厅类型</td>\n" +
-                "                                </div>\n" +
-                "                                <div class=\"th th-amount\">\n" +
-                "                                    <td class=\"td-inner\">下单时间</td>\n" +
-                "                                </div>\n" +
-                "                                <div class=\"th th-amount\">\n" +
-                "                                    <td class=\"td-inner\">收货地址</td>\n" +
-                "                                </div>\n" +
-                "                                <div class=\"th th-amount\">\n" +
-                "                                    <td class=\"td-inner\">交易状态</td>\n" +
-                "                                </div>\n" +
-                "                                <div class=\"th th-amount\">\n" +
-                "                                    <td class=\"td-inner\">订单详情</td>\n" +
-                "                                </div>\n" +
-                "                                <div class=\"th th-amount\">\n" +
-                "                                    <td class=\"td-inner\">优惠</td>\n" +
-                "                                </div>\n" +
-                "                                <div class=\"th th-amount\">\n" +
-                "                                    <td class=\"td-inner\">总价</td>\n" +
-                "                                </div>";*/
-            var Price = document.getElementById("Price");
-            Price.innerHTML = "";
+    if(name=="visitor"){
+        alert("您还未登录，请先登录或注册！")
+        var url=encodeURI("index.jsp");
+        window.location.href=url;
+    }
+    else{
+        document.getElementById('ppp').className='am-active';
+        document.getElementById('ttt').className='am-g';
+        document.getElementById('rrr').className='am-g';
+        var sta = document.getElementById("marketsByOrderSum");
+        sta.style.display = 'none';
+        var sta = document.getElementById("statistic");
+        sta.style.display = 'block';
+        $.ajax({
+            type: "POST",
+            dataType: "json",
+            url: "MembergetOrderbyPriceServlet",
+            cache: false,
+            data: {
+                "MemberID": id,
+                "MemberName":name,
+            },
+            success: function (result) {
+                console.log(result);
+                var tt=document.getElementById("tt");
+                /*tt.innerHTML="<div class=\"th th-amount\">\n" +
+                    "                                    <td class=\"td-inner\">订单号</td>\n" +
+                    "                                </div>\n" +
+                    "                                <div class=\"th th-amount\">\n" +
+                    "                                    <td class=\"td-inner\">餐厅</td>\n" +
+                    "                                </div>\n" +
+                    "                                <div class=\"th th-amount\">\n" +
+                    "                                    <td class=\"td-inner\">餐厅地址</td>\n" +
+                    "                                </div>\n" +
+                    "                                <div class=\"th th-amount\">\n" +
+                    "                                    <td class=\"td-inner\">餐厅类型</td>\n" +
+                    "                                </div>\n" +
+                    "                                <div class=\"th th-amount\">\n" +
+                    "                                    <td class=\"td-inner\">下单时间</td>\n" +
+                    "                                </div>\n" +
+                    "                                <div class=\"th th-amount\">\n" +
+                    "                                    <td class=\"td-inner\">收货地址</td>\n" +
+                    "                                </div>\n" +
+                    "                                <div class=\"th th-amount\">\n" +
+                    "                                    <td class=\"td-inner\">交易状态</td>\n" +
+                    "                                </div>\n" +
+                    "                                <div class=\"th th-amount\">\n" +
+                    "                                    <td class=\"td-inner\">订单详情</td>\n" +
+                    "                                </div>\n" +
+                    "                                <div class=\"th th-amount\">\n" +
+                    "                                    <td class=\"td-inner\">优惠</td>\n" +
+                    "                                </div>\n" +
+                    "                                <div class=\"th th-amount\">\n" +
+                    "                                    <td class=\"td-inner\">总价</td>\n" +
+                    "                                </div>";*/
+                var Price = document.getElementById("Price");
+                Price.innerHTML = "";
 
-            var str="";
+                var str="";
 
-            str=str+"<form class='am-form'>"
-                +"<table class='order-list ng-scope' ng-show='orderList.length'>"
+                str=str+"<form class='am-form'>"
+                    +"<table class='order-list ng-scope' ng-show='orderList.length'>"
 
-                +"<thead>"
-                +"<tr>"
-                +"<th>下单时间</th>"
-                +"<th class='order-list-infoth'>订单内容</th>"
-                +"<th></th>"
-                +"<th>支付金额（元）</th>"
-                +"<th>状态</th>"
-                +"<th>操作</th>"
-                +"</tr>"
-                +"</thead>"
-                +"<tbody>"
-                +"<tr></tr>";
+                    +"<thead>"
+                    +"<tr>"
+                    +"<th>下单时间</th>"
+                    +"<th class='order-list-infoth'>订单内容</th>"
+                    +"<th></th>"
+                    +"<th>支付金额（元）</th>"
+                    +"<th>状态</th>"
+                    +"<th>操作</th>"
+                    +"</tr>"
+                    +"</thead>"
+                    +"<tbody>"
+                    +"<tr></tr>";
 
-            if (result.length > 7) {
-                for (var i = 0; i < 8; i++) {
-                    str=str+"<tr class='timeline' order-timeline ng-repeat='item in orderList'>"
-                        +"<td class='ordertimeline-time'>"
-                        +"<p ng-bind='item.formatted_created_at | date:'HH:mm'' class='ng-binding'>"+result[i].orderTime.substr(0,16)+"</p>"
-                        //+"<i class='ordertimeline-time-icon icon-uniE65E finish ng-scope' ng-if='item.realStatus === 5'></i>"
-                        +"</td>"
-                        +"<td class='ordertimeline-avatar'>"
-                        +"<img src='image/test.jpg'>"
-                        +"</td>"
-                        +"<td class='ordertimeline-info'>"
-                        +"<p>"+result[i].OrderInfo +"</p>"
-                        +"<p>订单号："+result[i].orderID+"</p>"
-                        +"</td>"
-                        +"<td class='ordertimeline-amount'>"
-                        +"<p>"+result[i].orderPrice +"</p>"
-                        +"</td>"
-                        +"<td class='ordertimeline-status'>"
-                        +"<p>"+result[i].orderState +"</p>"
-                        +"</td>"
-                        +"<td class='ordertimeline-handle'>"
-                        //+"<a class='ordertimeline-handle-detail' onclick='getOrderInfo()'>订单详情</a>"
+                if (result.length > 7) {
+                    for (var i = 0; i < 8; i++) {
+                        str=str+"<tr class='timeline' order-timeline ng-repeat='item in orderList'>"
+                            +"<td class='ordertimeline-time'>"
+                            +"<p ng-bind='item.formatted_created_at | date:'HH:mm'' class='ng-binding'>"+result[i].orderTime.substr(0,16)+"</p>"
+                            //+"<i class='ordertimeline-time-icon icon-uniE65E finish ng-scope' ng-if='item.realStatus === 5'></i>"
+                            +"</td>"
+                            +"<td class='ordertimeline-avatar'>"
+                            +"<img src='image/test.jpg'>"
+                            +"</td>"
+                            +"<td class='ordertimeline-info'>"
+                            +"<p>"+result[i].OrderInfo +"</p>"
+                            +"<p>订单号："+result[i].orderID+"</p>"
+                            +"</td>"
+                            +"<td class='ordertimeline-amount'>"
+                            +"<p>"+result[i].orderPrice +"</p>"
+                            +"</td>"
+                            +"<td class='ordertimeline-status'>"
+                            +"<p>"+result[i].orderState +"</p>"
+                            +"</td>"
+                            +"<td class='ordertimeline-handle'>"
+                            //+"<a class='ordertimeline-handle-detail' onclick='getOrderInfo()'>订单详情</a>"
 
-                        +"<button class='btn btn-primary btn-lg' data-toggle='modal' data-target='#myModal'>"
-                        +"订单详情"
-                        +"</button>"
-                        +"<div class='modal fade' id='myModal' tabindex='-1' role='dialog' aria-labelledby='myModalLabel' aria-hidden='true' style='display:none;'>" +
-                        "<div class='modal-dialog'>" +
-                        "<div class='modal-content'>" +
-                        "<div class='modal-header'>" +
-                        "<button type='button' class='close' data-dismiss='modal' aria-hidden='true'>" +
-                        "&times;" +
-                        "</button>" +
-                        "<h4 class='modal-title' id='myModalLabel'>" +
-                        "我是标题" +
-                        "</h4>" +
-                        "</div>" +
-                        "<div class='modal-body'>" +
-                        "哈哈哈哈哈哈哈" +
-                        "</div>" +
-                        "<div class='modal-footer'>" +
-                        "<button type='button' class='btn btn-default' data-dismiss='modal'>关闭" +
-                        "</button>" +
+                            +"<button class='btn btn-primary btn-lg' data-toggle='modal' data-target='#myModal'>"
+                            +"订单详情"
+                            +"</button>"
+                            +"<div class='modal fade' id='myModal' tabindex='-1' role='dialog' aria-labelledby='myModalLabel' aria-hidden='true' style='display:none;'>" +
+                            "<div class='modal-dialog'>" +
+                            "<div class='modal-content'>" +
+                            "<div class='modal-header'>" +
+                            "<button type='button' class='close' data-dismiss='modal' aria-hidden='true'>" +
+                            "&times;" +
+                            "</button>" +
+                            "<h4 class='modal-title' id='myModalLabel'>" +
+                            "我是标题" +
+                            "</h4>" +
+                            "</div>" +
+                            "<div class='modal-body'>" +
+                            "哈哈哈哈哈哈哈" +
+                            "</div>" +
+                            "<div class='modal-footer'>" +
+                            "<button type='button' class='btn btn-default' data-dismiss='modal'>关闭" +
+                            "</button>" +
 
-                        "</div>" +
-                        "</div>" +
-                        "</div>" +
-                        "</div>"
+                            "</div>" +
+                            "</div>" +
+                            "</div>" +
+                            "</div>"
 
 
-                        +"</td>"
-                        +"</tr>";
-                    /*Price.innerHTML +="<div width='100%'>" +
-                        "                               <div class=\"th th-amount\">\n" +
-                        "                                    <td class=\"td-inner\">"+(i+1)+"</td>\n" +
-                        "                                </div>\n" +
-                        "                                <div class=\"th th-amount\">\n" +
-                        "                                    <td class=\"td-inner\">"+result[i].RestaurantName +"</td>\n" +
-                        "                                </div>\n" +
-                        "                                <div class=\"th th-amount\">\n" +
-                        "                                    <td class=\"td-inner\">"+ result[i].RestaurantAddress +"</td>\n" +
-                        "                                </div>\n" +
-                        "                                <div class=\"th th-amount\">\n" +
-                        "                                    <td class=\"td-inner\">"+ result[i].RestaurantType +"</td>\n" +
-                        "                                </div>\n" +
-                        "                                <div class=\"th th-amount\">\n" +
-                        "                                    <td class=\"td-inner\">"+ result[i].orderTime +"</td>\n" +
-                        "                                </div>\n" +
-                        "                                <div class=\"th th-amount\">\n" +
-                        "                                    <td class=\"td-inner\">"+ result[i].orderAddress +"</td>\n" +
-                        "                                </div>\n" +
-                        "                                <div class=\"th th-amount\">\n" +
-                        "                                    <td class=\"td-inner\">"+ result[i].orderState +"</td>\n" +
-                        "                                </div>\n" +
-                        "                                <div class=\"th th-amount\">\n" +
-                        "                                    <td class=\"td-inner\">"+ result[i].OrderInfo +"</td>\n" +
-                        "                                </div>\n" +
-                        "                                <div class=\"th th-amount\">\n" +
-                        "                                    <td class=\"td-inner\">"+ result[i].preferential +"</td>\n" +
-                        "                                </div>\n" +
-                        "                                <div class=\"th th-amount\">\n" +
-                        "                                    <td class=\"td-inner\">"+ result[i].orderPrice + "</td>\n" +
-                        "                                </div>" +
-                        "</div>" +
-                        "<hr>"
-                    Price.innerHTML +="<br><br><br><br><br><br>";*/
+                            +"</td>"
+                            +"</tr>";
+                        /*Price.innerHTML +="<div width='100%'>" +
+                            "                               <div class=\"th th-amount\">\n" +
+                            "                                    <td class=\"td-inner\">"+(i+1)+"</td>\n" +
+                            "                                </div>\n" +
+                            "                                <div class=\"th th-amount\">\n" +
+                            "                                    <td class=\"td-inner\">"+result[i].RestaurantName +"</td>\n" +
+                            "                                </div>\n" +
+                            "                                <div class=\"th th-amount\">\n" +
+                            "                                    <td class=\"td-inner\">"+ result[i].RestaurantAddress +"</td>\n" +
+                            "                                </div>\n" +
+                            "                                <div class=\"th th-amount\">\n" +
+                            "                                    <td class=\"td-inner\">"+ result[i].RestaurantType +"</td>\n" +
+                            "                                </div>\n" +
+                            "                                <div class=\"th th-amount\">\n" +
+                            "                                    <td class=\"td-inner\">"+ result[i].orderTime +"</td>\n" +
+                            "                                </div>\n" +
+                            "                                <div class=\"th th-amount\">\n" +
+                            "                                    <td class=\"td-inner\">"+ result[i].orderAddress +"</td>\n" +
+                            "                                </div>\n" +
+                            "                                <div class=\"th th-amount\">\n" +
+                            "                                    <td class=\"td-inner\">"+ result[i].orderState +"</td>\n" +
+                            "                                </div>\n" +
+                            "                                <div class=\"th th-amount\">\n" +
+                            "                                    <td class=\"td-inner\">"+ result[i].OrderInfo +"</td>\n" +
+                            "                                </div>\n" +
+                            "                                <div class=\"th th-amount\">\n" +
+                            "                                    <td class=\"td-inner\">"+ result[i].preferential +"</td>\n" +
+                            "                                </div>\n" +
+                            "                                <div class=\"th th-amount\">\n" +
+                            "                                    <td class=\"td-inner\">"+ result[i].orderPrice + "</td>\n" +
+                            "                                </div>" +
+                            "</div>" +
+                            "<hr>"
+                        Price.innerHTML +="<br><br><br><br><br><br>";*/
+                    }
+                    //Price.innerHTML += "<hr>";
+                } else {
+                    for (var i = 0; i < result.length; i++) {
+                        str=str+"<tr class='timeline' order-timeline ng-repeat='item in orderList'>"
+                            +"<td class='ordertimeline-time'>"
+                            +"<p ng-bind='item.formatted_created_at | date:'HH:mm'' class='ng-binding'>"+result[i].orderTime.substr(0,16)+"</p>"
+                            //+"<i class='ordertimeline-time-icon icon-uniE65E finish ng-scope' ng-if='item.realStatus === 5'></i>"
+                            +"</td>"
+                            +"<td class='ordertimeline-avatar'>"
+                            +"<img src='image/test.jpg'>"
+                            +"</td>"
+                            +"<td class='ordertimeline-info'>"
+                            +"<p>"+result[i].OrderInfo +"</p>"
+                            +"<p>订单号："+result[i].orderID+"</p>"
+                            +"</td>"
+                            +"<td class='ordertimeline-amount'>"
+                            +"<p>"+result[i].orderPrice +"</p>"
+                            +"</td>"
+                            +"<td class='ordertimeline-status'>"
+                            +"<p>"+result[i].orderState +"</p>"
+                            +"</td>"
+                            +"<td class='ordertimeline-handle'>"
+                            //+"<a class='ordertimeline-handle-detail' onclick='getOrderInfo()'>订单详情</a>"
+
+                            +"<button class='btn btn-primary btn-lg' data-toggle='modal' data-target='#myModal'>"
+                            +"订单详情"
+                            +"</button>"
+                            +"<div class='modal fade' id='myModal' tabindex='-1' role='dialog' aria-labelledby='myModalLabel' aria-hidden='true' style='display:none;'>" +
+                            "<div class='modal-dialog'>" +
+                            "<div class='modal-content'>" +
+                            "<div class='modal-header'>" +
+                            "<button type='button' class='close' data-dismiss='modal' aria-hidden='true'>" +
+                            "&times;" +
+                            "</button>" +
+                            "<h4 class='modal-title' id='myModalLabel'>" +
+                            "我是标题" +
+                            "</h4>" +
+                            "</div>" +
+                            "<div class='modal-body'>" +
+                            "哈哈哈哈哈哈哈" +
+                            "</div>" +
+                            "<div class='modal-footer'>" +
+                            "<button type='button' class='btn btn-default' data-dismiss='modal'>关闭" +
+                            "</button>" +
+
+                            "</div>" +
+                            "</div>" +
+                            "</div>" +
+                            "</div>"
+                            +"</td>"
+                            +"</tr>";
+                        /*Price.innerHTML +="<div width='100%'>" +
+                            "                               <div class=\"th th-amount\">\n" +
+                            "                                    <td class=\"td-inner\">"+(i+1)+"</td>\n" +
+                            "                                </div>\n" +
+                            "                                <div class=\"th th-amount\">\n" +
+                            "                                    <td class=\"td-inner\">"+result[i].RestaurantName +"</td>\n" +
+                            "                                </div>\n" +
+                            "                                <div class=\"th th-amount\">\n" +
+                            "                                    <td class=\"td-inner\">"+ result[i].RestaurantAddress +"</td>\n" +
+                            "                                </div>\n" +
+                            "                                <div class=\"th th-amount\">\n" +
+                            "                                    <td class=\"td-inner\">"+ result[i].RestaurantType +"</td>\n" +
+                            "                                </div>\n" +
+                            "                                <div class=\"th th-amount\">\n" +
+                            "                                    <td class=\"td-inner\">"+ result[i].orderTime +"</td>\n" +
+                            "                                </div>\n" +
+                            "                                <div class=\"th th-amount\">\n" +
+                            "                                    <td class=\"td-inner\">"+ result[i].orderAddress +"</td>\n" +
+                            "                                </div>\n" +
+                            "                                <div class=\"th th-amount\">\n" +
+                            "                                    <td class=\"td-inner\">"+ result[i].orderState +"</td>\n" +
+                            "                                </div>\n" +
+                            "                                <div class=\"th th-amount\">\n" +
+                            "                                    <td class=\"td-inner\">"+ result[i].OrderInfo +"</td>\n" +
+                            "                                </div>\n" +
+                            "                                <div class=\"th th-amount\">\n" +
+                            "                                    <td class=\"td-inner\">"+ result[i].preferential +"</td>\n" +
+                            "                                </div>\n" +
+                            "                                <div class=\"th th-amount\">\n" +
+                            "                                    <td class=\"td-inner\">"+ result[i].orderPrice + "</td>\n" +
+                            "                                </div>" +
+                            "</div>" +
+                            "<hr>"
+                        Price.innerHTML +="<br><br><br><br><br><br>";*/
+                    }
+                    //Price.innerHTML += "<hr>";
                 }
-                //Price.innerHTML += "<hr>";
-            } else {
-                for (var i = 0; i < result.length; i++) {
-                    str=str+"<tr class='timeline' order-timeline ng-repeat='item in orderList'>"
-                        +"<td class='ordertimeline-time'>"
-                        +"<p ng-bind='item.formatted_created_at | date:'HH:mm'' class='ng-binding'>"+result[i].orderTime.substr(0,16)+"</p>"
-                        //+"<i class='ordertimeline-time-icon icon-uniE65E finish ng-scope' ng-if='item.realStatus === 5'></i>"
-                        +"</td>"
-                        +"<td class='ordertimeline-avatar'>"
-                        +"<img src='image/test.jpg'>"
-                        +"</td>"
-                        +"<td class='ordertimeline-info'>"
-                        +"<p>"+result[i].OrderInfo +"</p>"
-                        +"<p>订单号："+result[i].orderID+"</p>"
-                        +"</td>"
-                        +"<td class='ordertimeline-amount'>"
-                        +"<p>"+result[i].orderPrice +"</p>"
-                        +"</td>"
-                        +"<td class='ordertimeline-status'>"
-                        +"<p>"+result[i].orderState +"</p>"
-                        +"</td>"
-                        +"<td class='ordertimeline-handle'>"
-                        //+"<a class='ordertimeline-handle-detail' onclick='getOrderInfo()'>订单详情</a>"
-
-                        +"<button class='btn btn-primary btn-lg' data-toggle='modal' data-target='#myModal'>"
-                        +"订单详情"
-                        +"</button>"
-                        +"<div class='modal fade' id='myModal' tabindex='-1' role='dialog' aria-labelledby='myModalLabel' aria-hidden='true' style='display:none;'>" +
-                        "<div class='modal-dialog'>" +
-                        "<div class='modal-content'>" +
-                        "<div class='modal-header'>" +
-                        "<button type='button' class='close' data-dismiss='modal' aria-hidden='true'>" +
-                        "&times;" +
-                        "</button>" +
-                        "<h4 class='modal-title' id='myModalLabel'>" +
-                        "我是标题" +
-                        "</h4>" +
-                        "</div>" +
-                        "<div class='modal-body'>" +
-                        "哈哈哈哈哈哈哈" +
-                        "</div>" +
-                        "<div class='modal-footer'>" +
-                        "<button type='button' class='btn btn-default' data-dismiss='modal'>关闭" +
-                        "</button>" +
-
-                        "</div>" +
-                        "</div>" +
-                        "</div>" +
-                        "</div>"
-                        +"</td>"
-                        +"</tr>";
-                    /*Price.innerHTML +="<div width='100%'>" +
-                        "                               <div class=\"th th-amount\">\n" +
-                        "                                    <td class=\"td-inner\">"+(i+1)+"</td>\n" +
-                        "                                </div>\n" +
-                        "                                <div class=\"th th-amount\">\n" +
-                        "                                    <td class=\"td-inner\">"+result[i].RestaurantName +"</td>\n" +
-                        "                                </div>\n" +
-                        "                                <div class=\"th th-amount\">\n" +
-                        "                                    <td class=\"td-inner\">"+ result[i].RestaurantAddress +"</td>\n" +
-                        "                                </div>\n" +
-                        "                                <div class=\"th th-amount\">\n" +
-                        "                                    <td class=\"td-inner\">"+ result[i].RestaurantType +"</td>\n" +
-                        "                                </div>\n" +
-                        "                                <div class=\"th th-amount\">\n" +
-                        "                                    <td class=\"td-inner\">"+ result[i].orderTime +"</td>\n" +
-                        "                                </div>\n" +
-                        "                                <div class=\"th th-amount\">\n" +
-                        "                                    <td class=\"td-inner\">"+ result[i].orderAddress +"</td>\n" +
-                        "                                </div>\n" +
-                        "                                <div class=\"th th-amount\">\n" +
-                        "                                    <td class=\"td-inner\">"+ result[i].orderState +"</td>\n" +
-                        "                                </div>\n" +
-                        "                                <div class=\"th th-amount\">\n" +
-                        "                                    <td class=\"td-inner\">"+ result[i].OrderInfo +"</td>\n" +
-                        "                                </div>\n" +
-                        "                                <div class=\"th th-amount\">\n" +
-                        "                                    <td class=\"td-inner\">"+ result[i].preferential +"</td>\n" +
-                        "                                </div>\n" +
-                        "                                <div class=\"th th-amount\">\n" +
-                        "                                    <td class=\"td-inner\">"+ result[i].orderPrice + "</td>\n" +
-                        "                                </div>" +
-                        "</div>" +
-                        "<hr>"
-                    Price.innerHTML +="<br><br><br><br><br><br>";*/
-                }
-                //Price.innerHTML += "<hr>";
+                str=str+ "</tbody>"
+                    +"</table>"
+                    +"</form>";
+                Price.innerHTML+=str;
             }
-            str=str+ "</tbody>"
-                +"</table>"
-                +"</form>";
-            Price.innerHTML+=str;
-        }
-    })
+        })
+    }
+
 }
 function GetOrdersByRes(){
     var thisURL=decodeURI(window.location.href);

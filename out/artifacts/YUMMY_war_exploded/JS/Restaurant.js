@@ -17,10 +17,20 @@ function GetOrders() {
 }
 
 function RestaurantInfo() {
+
+    var div = document.getElementById("resInfo");
+    div.style.display = "block";
+    var info1 = document.getElementById("info1");
+    info1.style.fontSize = "2rem";
+    info1.style.fontWeight = "bold";
+    info1.style.color = "#F37B1D";
+    var info2 = document.getElementById("info2");
+    info2.style = null;
+
     var thisURL = decodeURI(window.location.href);
     name = thisURL.split('~')[1];
     chaptcha = thisURL.split('~')[2];
-    var main = document.getElementById("main1");
+   /* var main = document.getElementById("main1");
     var main1 = document.getElementById("main");
     main1.innerHTML = "";
     main.innerHTML = "";
@@ -171,7 +181,7 @@ function RestaurantInfo() {
         "\t\t\t\t</div>\n" +
         "\t\t\t</div>\n" +
         "\t\t</div>\n" +
-        "\t</div>";
+        "\t</div>";*/
     $.ajax({
         type: "POST",
         dataType: "json",
@@ -180,6 +190,19 @@ function RestaurantInfo() {
         success: function (result) {
             //得到该餐厅的所有基本信息
             console.log(result);
+            var div1 = document.getElementById("name");
+            div1.value = result.resName;
+            var div2 = document.getElementById("password");
+            div2.value = chaptcha;
+            var div3 = document.getElementById("phone");
+            div3.value = result.restype;
+            var div4 = document.getElementById("email");
+            div4.value = result.phone;
+            var div5 = document.getElementById("account");
+            div5.value = result.resAddress;
+            var div6 = document.getElementById("balance");
+            div6.value = 12156.3;
+
             /*Name = document.getElementById("name");
             // console.log(Name.length);
             //chaptcha = document.getElementById("chaptcha");
@@ -312,10 +335,18 @@ function EditRestaurantInfo() {
 }
 
 function Dishes() {
+    var div = document.getElementById("resInfo");
+    div.style.display = "none";
     //得到已有的菜品显示
     //添加一个新增菜品的按钮
     //得到已有的套餐并显示
     //添加一个新增套餐的按钮
+    var info2 = document.getElementById("info2");
+    info2.style.fontSize = "2rem";
+    info2.style.fontWeight = "bold";
+    info2.style.color = "#F37B1D";
+    var info1 = document.getElementById("info1");
+    info1.style = null;
     var thisURL = decodeURI(window.location.href);
     name = thisURL.split('~')[1];
     chaptcha = thisURL.split('~')[2];

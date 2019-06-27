@@ -15,6 +15,12 @@
     <link href="Style/common.min.css" rel="stylesheet" type="text/css">
     <link href="Style/join.min.css" rel="stylesheet" type="text/css">
     <link href="Style/other.min.css" rel="stylesheet" type="text/css">
+
+    <style>
+      a{
+        color: red;
+      }
+    </style>
   </head>
     <%--
     <div>
@@ -57,13 +63,13 @@
         </div>
         <div class="am-u-md-9">
           <div class="topbar-right am-text-right am-fr">
-            <a style="font-size:18px;" href="Register.jsp">注册</a>
+            <a id="reg" style="font-size:18px;position: relative;left: 100px;" href="Register.jsp">注册</a>
           </div>
         </div>
       </div>
     </div>
   </div>
-  <div class="login-container">
+  <div class="login-container" style="position: relative;top:-50px">
     <div class="login-box"  style="opacity:0.95">
       <div class="logo-img">
         <img src="image/logo2_03.png" alt="" />
@@ -92,7 +98,7 @@
         </div>
       </form>
       <div class="am-form">
-        <button class="am-form am-btn am-btn-secondary"  onclick="MemberLogin()" type="submit">登录</button>
+        <button class="am-form am-btn am-btn-secondary"  onclick="MemberLogin()" type="submit" style="outline: none">登录</button>
       </div>
     </div>
     </div>

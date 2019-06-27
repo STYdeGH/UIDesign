@@ -42,11 +42,10 @@
             <div class="am-container header">
                 <ul class="message-r">
                     <div class="topMessage home">
-                        <div class="menu-hd"><a onclick="Main()" target="_top" class="h">订餐大厅</a></div>
+                        <div class="menu-hd"><a onclick="Logout()" target="_top" class="h">退出</a></div>
                     </div>
-                    <div class="topMessage my-shangcheng">
-                        <div class="menu-hd MyShangcheng"><a href="#" target="_top" onclick="member()"><i
-                                class="am-icon-user am-icon-fw"></i>个人中心</a></div>
+                    <div class="topMessage home">
+                        <div class="menu-hd"><a onclick="DeleteMember()" target="_top" class="h">注销账号</a></div>
                     </div>
                 </ul>
             </div>
@@ -59,8 +58,11 @@
 <b class="line"></b>
 
 <div class="center">
-    <aside class="menu col-md-2" >
+    <aside class="menu col-md-2">
         <ul>
+            <li class="person">
+                <a onclick="Main()">订餐大厅</a>
+            </li>
             <li class="person">
                 <a onclick="member()">个人中心</a>
             </li>
@@ -72,12 +74,6 @@
             </li>
             <li class="person">
                 <a onclick="MemberHistoryOrders()">历史订单</a>
-            </li>
-            <li class="person">
-                <a onclick="DeleteMember()">注销账号</a>
-            </li>
-            <li class="person">
-                <a onclick="Logout()">退出</a>
             </li>
         </ul>
 
@@ -142,31 +138,31 @@
                                         <div class="am-tab-panel am-fade am-in am-active" id="tab1">
 
                                             <div class="am-form-group">
-                                                <label for="context" class="am-form-label">订单详情：</label>
+                                                <label for="context" style="width: 20%" class="am-form-label">订单详情：</label>
                                                 <div class="am-form-content">
                                                     <input type="text" readonly="readonly" id="context"
-                                                           style="border:none"/>
+                                                           style="border:none;width: 80%"/>
                                                 </div>
                                             </div>
                                             <div class="am-form-group">
-                                                <label for="All" class="am-form-label">原价：</label>
+                                                <label for="All" style="width: 20%"  class="am-form-label">原价：</label>
                                                 <div class="am-form-content">
                                                     <input type="text" readonly="readonly" id="All"
-                                                           style="border:none"/>
+                                                           style="border:none;width: 80%"/>
                                                 </div>
                                             </div>
                                             <div class="am-form-group">
-                                                <label for="dis" class="am-form-label">优惠：</label>
+                                                <label for="dis" style="width: 20%" class="am-form-label">优惠：</label>
                                                 <div class="am-form-content">
                                                     <input type="text" readonly="readonly" id="dis"
-                                                           style="border:none"/>
+                                                           style="border:none;width: 80%"/>
                                                 </div>
                                             </div>
                                             <div class="am-form-group">
-                                                <label for="newall" class="am-form-label">总价：</label>
+                                                <label for="newall" style="width: 20%" class="am-form-label">总价：</label>
                                                 <div class="am-form-content">
                                                     <input type="text" readonly="readonly" id="newall"
-                                                           style="border:none"/>
+                                                           style="border:none;width: 80%"/>
                                                 </div>
                                             </div>
                                             <div class="am-form-group">
@@ -178,7 +174,7 @@
 
                                             </div>
                                             <div class="am-form-group">
-                                                <label class="am-form-label">预计配送时间：</label>
+                                                <label class="am-form-label" >预计配送时间：</label>
                                                 <h5 id="arrrr"></h5></div>
 
                                             <br>
@@ -208,7 +204,6 @@
         </div>
         <!--底部-->
     </div>
-
 
 
 </div>

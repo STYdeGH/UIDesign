@@ -23,35 +23,43 @@ function memberinfo(){
     var id=thisURL.split('~')[1];
     var name=thisURL.split('~')[2];
     var PassWord=thisURL.split('~')[3];
-    Name=document.getElementById("name");
-    Id=document.getElementById("id");
-    Password=document.getElementById("password");
-    Phone=document.getElementById("phone");
-    Email=document.getElementById("email");
-    Account=document.getElementById("account");
-    Balance=document.getElementById("balance");
-    Credit=document.getElementById("credit");
-    Level=document.getElementById("level");
-    Address=document.getElementById("Naddress");
-    $.ajax({
-        type:"POST",
-        dataType:"json",
-        data:{"name":name,"password":PassWord},
-        url:"MemberLoginServlet",
-        success:function(result){
-           // alert("基本信息");
-            var jo=eval(result);
-            Password.value=jo.password;
-            Name.value=jo.memberName;
-            Id.value=jo.memberId;
-            Phone.value=jo.memberPhone;
-            Email.value=jo.memberEmail;
-            Account.value=jo.memberAccount;
-            Balance.value=jo.memberBalance.toFixed(2);
-            Credit.value=jo.memberCredit;
-            Level.value=jo.memberLevel;
-        }
-    });
+    //alert(name);
+    if(name=="visitor"){
+        alert("您还未登录，请先登录或注册！")
+        var url=encodeURI("index.jsp");
+        window.location.href=url;
+    }
+    else{
+        Name=document.getElementById("name");
+        Id=document.getElementById("id");
+        Password=document.getElementById("password");
+        Phone=document.getElementById("phone");
+        Email=document.getElementById("email");
+        Account=document.getElementById("account");
+        Balance=document.getElementById("balance");
+        Credit=document.getElementById("credit");
+        Level=document.getElementById("level");
+        Address=document.getElementById("Naddress");
+        $.ajax({
+            type:"POST",
+            dataType:"json",
+            data:{"name":name,"password":PassWord},
+            url:"MemberLoginServlet",
+            success:function(result){
+                // alert("基本信息");
+                var jo=eval(result);
+                Password.value=jo.password;
+                Name.value=jo.memberName;
+                Id.value=jo.memberId;
+                Phone.value=jo.memberPhone;
+                Email.value=jo.memberEmail;
+                Account.value=jo.memberAccount;
+                Balance.value=jo.memberBalance.toFixed(2);
+                Credit.value=jo.memberCredit;
+                Level.value=jo.memberLevel;
+            }
+        });
+    }
 }
 
 function Edit() {

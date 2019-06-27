@@ -23,14 +23,56 @@
 
 </head>
 <body onload="ResGetOrdersByTime()">
+
+<header  style="background-color: #68c6de;width: 1422px;height: 40px">
+    <article>
+        <div class="mt-logo">
+            <!--顶部导航条 -->
+            <div class="am-container header">
+
+                <ul class="message-r">
+                    <div class="topMessage home">
+                        <p id="logoP" style="font-family:Times New Roman,Monospace,sans-serif;font-size:2rem;position:relative;left:-1020px;top:3px;color: white;font-weight: bolder">YUMMY</p>
+                    </div>
+                    <!--<div class="topMessage home">
+                        <div class="menu-hd"><a onclick="Logout()" target="_top" class="h" style="position:relative;left:20px;font-weight:bold;color: palevioletred">退出</a></div>
+                        <button onclick="Logout()" class="am-btn am-btn-small am-btn-warning" style="outline: none;border-radius: 5px;position:relative;top:6px;left:40px;">
+                            <i class="am-icon-sign-out"></i>
+                            退出
+                        </button>
+                    </div>-->
+                    <div class="topMessage home">
+                        <!--<div class="menu-hd"><a onclick="DeleteMember()" target="_top" class="h" style="position:relative;left:30px;font-weight: bold;color: palevioletred">注销</a></div>-->
+                        <button onclick="RestaurantLogout()" class="am-btn am-btn-small am-btn-warning" style="outline: none;border-radius: 5px;position:relative;top:4px;left:55px;">
+                            <i class="am-icon-sign-out"></i>
+                            退出
+                        </button>
+                    </div>
+                </ul>
+            </div>
+            <!--悬浮搜索框-->
+        </div>
+        </div>
+    </article>
+</header>
+
 <div class="center">
     <aside class="menu  col-main-2">
         <ul>
             <li class="person">
-                <a onclick="RestaurantInfo()">餐厅中心</a>
+                <a onclick="restaurantInfo()">餐厅信息</a>
             </li>
             <li class="person">
-                <a onclick="RestaurantLogout()">退出</a>
+                <a onclick="dishes()">我的菜单</a>
+            </li>
+            <li class="person">
+                <a onclick="disself()">优惠信息</a>
+            </li>
+            <li class="person">
+                <a onclick="GetOrders()" style="font-size: 1.5rem;font-weight: bold;color: #F37B1D">历史订单</a>
+            </li>
+            <li class="person">
+                <a onclick="RestaurantLogout()" style="display: none">退出</a>
             </li>
         </ul>
 
@@ -41,10 +83,10 @@
             <div class="user-order">
 
                 <!--标题 -->
-                <div class="am-cf am-padding">
+                <!--<div class="am-cf am-padding">
                     <div class="am-fl am-cf"><strong class="am-text-danger am-text-lg">订单管理</strong> / <small>Order</small></div>
                 </div>
-                <hr/>
+                <hr/>-->
 
                 <div class="am-tabs am-tabs-d2 am-margin" data-am-tabs>
 
@@ -114,5 +156,36 @@
 
 
 </div>
+
+<script>
+    function restaurantInfo() {
+        var thisURL = decodeURI(window.location.href);
+        name = thisURL.split('~')[1];
+        chaptcha = thisURL.split('~')[2];
+        var url = encodeURI("Restaurant.jsp?~" + name + "~" + chaptcha);
+        window.location.href = url;
+    }
+</script>
+
+<script>
+    function dishes() {
+        var thisURL = decodeURI(window.location.href);
+        name = thisURL.split('~')[1];
+        chaptcha = thisURL.split('~')[2];
+        var url = encodeURI("Restaurant.jsp?~" + name + "~" + chaptcha);
+        window.location.href = url;
+    }
+</script>
+
+<script>
+    function disself() {
+        var thisURL = decodeURI(window.location.href);
+        name = thisURL.split('~')[1];
+        chaptcha = thisURL.split('~')[2];
+        var url = encodeURI("MarketDiscount.jsp?~" + name + "~" + chaptcha);
+        window.location.href = url;
+    }
+</script>
+
 </body>
 </html>

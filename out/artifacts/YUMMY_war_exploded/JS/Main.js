@@ -9,6 +9,37 @@ function GetRestaurant(type) {
     sellerbox.innerHTML = "";
     //dish.innerHTML = "";
     //alert(type);
+    if(type == "Characteristic"){
+        document.getElementById("Fastfood").className = "";
+        document.getElementById("Characteristic").className = "am-active";
+        document.getElementById("snacks").className = "";
+        document.getElementById("Exotic").className = "";
+
+    }
+
+    if(type == "Fastfood"){
+        document.getElementById("Fastfood").className = "am-active";
+        document.getElementById("Characteristic").className = "";
+        document.getElementById("snacks").className = "";
+        document.getElementById("Exotic").className = "";
+
+    }
+
+    if(type == "snacks"){
+        document.getElementById("Fastfood").className = "";
+        document.getElementById("Characteristic").className = "";
+        document.getElementById("snacks").className = "am-active";
+        document.getElementById("Exotic").className = "";
+
+    }
+
+    if(type == "Exotic"){
+        document.getElementById("Fastfood").className = "";
+        document.getElementById("Characteristic").className = "";
+        document.getElementById("snacks").className = "";
+        document.getElementById("Exotic").className = "am-active";
+
+    }
     $.ajax({
         type: "POST",
         dataType: "json",

@@ -67,67 +67,81 @@
             <div class="user-info">
                 <div class="am-cf am-padding">
                     <div class="am-fl am-cf">
-                        <strong class="am-text-danger am-text-lg">基本信息</strong>
+                        <strong class="am-text-danger am-text-lg" style="font-weight: bolder;font-size: 1.3rem">基本信息</strong>
                         &nbsp
-                        <button class="am-btn am-btn-danger" onclick="Edit()" id="save">保存</button></div>
+                    </div>
                 </div>
                 <hr/>
                 <div class="info-main">
                     <div class="am-form am-form-horizontal">
-                        <div class="am-form-group">
+                        <div id="userlogo" style="position: relative;left: 100px;top:40px;width: 160px;height: 205px">
+                            <img src="image/logo2_03.png" style="width: 90%;height: 90%;margin: 2px">
+                        </div>
+                        <div class="am-form-group" style="display:none;">
                             <label for="id" class="am-form-label">ID：</label>
                             <div class="am-form-content">
                                 <input type="text" readonly="readonly" id="id"/>
                             </div>
                         </div>
-                        <div class="am-form-group">
-                            <label for="name" class="am-form-label">昵称：</label>
+                        <div class="am-form-group" style="position: relative;left: 310px;top:-210px">
+                            <label for="name" class="am-form-label" style="font-size: 1.2rem;position: relative;top: -3px;color: grey">昵称：</label>
                             <div class="am-form-content">
-                                <input type="text" id="name"/>
+                                <input type="text" id="name" style="border-radius: 5px;width: 200px"/>
                             </div>
                         </div>
-                        <div class="am-form-group">
-                            <label for="password" class="am-form-label">密码：</label>
+                        <div class="am-form-group" style="position: relative;left: 310px;top:-210px">
+                            <label for="password" class="am-form-label" style="font-size: 1.2rem;position: relative;top: -3px;color: grey">密码：</label>
                             <div class="am-form-content">
-                                <input type="password" id="password"/>
+                                <input type="password" id="password" style="border-radius: 5px;width: 200px"/>
                             </div>
                         </div>
-                        <div class="am-form-group">
-                            <label for="phone" class="am-form-label">电话：</label>
+                        <div class="am-form-group" style="position: relative;left: 310px;top:-210px">
+                            <label for="phone" class="am-form-label" class="am-form-label" style="font-size: 1.2rem;position: relative;top: -3px;color: grey">电话：</label>
                             <div class="am-form-content">
-                                <input type="text" id="phone"/>
+                                <input type="text" id="phone" style="border-radius: 5px;width: 200px"/>
                             </div>
                         </div>
-                        <div class="am-form-group">
-                            <label for="email" class="am-form-label">邮箱：</label>
+                        <div class="am-form-group" style="position: relative;left: 310px;top:-210px">
+                            <label for="email" class="am-form-label" style="font-size: 1.2rem;position: relative;top: -3px;color: grey">邮箱：</label>
                             <div class="am-form-content">
-                                <input type="text" id="email"/>
+                                <input type="text" id="email" style="border-radius: 5px;width: 200px"/>
                             </div>
                         </div>
-                        <div class="am-form-group">
-                            <label for="account" class="am-form-label">支付账号：</label>
+                        <div class="am-form-group" style="position: relative;left: 120px;top:-210px">
+                            <label for="account" class="am-form-label" style="font-size: 1.2rem;position: relative;top: -3px;color: grey">支付账号：</label>
                             <div class="am-form-content">
-                                <input type="text" readonly="readonly" id="account"/>
+                                <input type="text" readonly="readonly" id="account" style="border-radius: 5px;width: 389px"/>
                             </div>
                         </div>
-                        <div class="am-form-group">
-                            <label for="balance" class="am-form-label">支付余额：</label>
+                        <div class="am-form-group" style="position: relative;left: 120px;top:-210px">
+                            <label for="balance" class="am-form-label" style="font-size: 1.2rem;position: relative;top: -3px;color: grey">支付余额：</label>
                             <div class="am-form-content">
-                                <input type="text" readonly="readonly" id="balance"/>
+                                <input type="text" readonly="readonly" id="balance" style="border-radius: 5px;width: 389px"/>
                             </div>
                         </div>
-                        <div class="am-form-group">
-                            <label for="credit" class="am-form-label">会员积分：</label>
+                        <div class="am-form-group" style="position: relative;left: 120px;top:-210px">
+                            <label for="credit" class="am-form-label" style="font-size: 1.2rem;position: relative;top: -3px;color: grey">会员积分：</label>
                             <div class="am-form-content">
-                                <input type="text" readonly="readonly" id="credit"/>
+                                <input type="text" readonly="readonly" id="credit" style="border-radius: 5px;width: 389px"/>
                             </div>
                         </div>
-                        <div class="am-form-group">
-                            <label for="level" class="am-form-label">会员级别：</label>
+                        <div class="am-form-group" style="position: relative;left: 120px;top:-210px">
+                            <label for="level" class="am-form-label" style="font-size: 1.2rem;position: relative;top: -3px;color: grey">会员级别：</label>
                             <div class="am-form-content">
-                                <input type="text" readonly="readonly" id="level"/>
+                                <input type="text" readonly="readonly" id="level" style="border-radius: 5px;width: 389px"/>
                             </div>
                         </div>
+
+                        <button onclick="Undo()" class="am-btn am-btn-small am-btn-success" style="outline: none;border-radius: 5px;position:relative;top:-210px;left:300px;">
+                            <i class="am-icon-undo"></i>
+                            取消
+                        </button>
+
+                        <button onclick="Edit()" id="save" class="am-btn am-btn-small am-btn-danger" style="outline: none;border-radius: 5px;position:relative;top:-210px;left:340px;">
+                            <i class="am-icon-save"></i>
+                            保存
+                        </button>
+
                     </div>
                 <div class="clear"></div>
                 <!--例子-->
@@ -189,5 +203,11 @@
 
     </aside>
 </div>
+
+<script>
+    function Undo() {
+        location.reload();
+    }
+</script>
 </body>
 </html>

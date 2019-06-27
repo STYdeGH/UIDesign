@@ -24,46 +24,54 @@ function memberaddress() {
     var id = thisURL.split('~')[1];
     var name = thisURL.split('~')[2];
     var PassWord = thisURL.split('~')[3];
-    Address = document.getElementById("Naddress");
-    $.ajax({
-        type: "POST",
-        dataType: "json",
-        data: {"membername": name, "memberid": id},
-        url: "GetMemberAddressServlet",
-        success: function (result1) {
-            //alert("地址信息");
-            var jo1 = eval(result1);
-            address = jo1.MemberAddress;
-            for (var i = 0; i < address.length; i++) {
-                console.log(address[i]);
-                var prov=address[i].split("-")[0];
-                var city=address[i].split("-")[1];
-                var dist=address[i].split("-")[2];
-                var street=address[i].split("-")[3];
-                console.log(prov);
-                Address.innerHTML += " <div value='"+address[i]+"' id='"+address[i]+"'><li class=\"user-addresslist defaultAddr\">\n" +
-                    "                                <span class=\"new-option-r\"></span>\n" +
-                    "                                <p class=\"new-tit new-p-re\">\n" +
-                    "                                    <span></span>\n" +
-                    "                                    <span></span>\n" +
-                    "                                </p>\n" +
-                    "                                <div class=\"new-mu_l2a new-p-re\">\n" +
-                    "                                    <p class=\"new-mu_l2cw\">\n" +
-                    "                                        <span class=\"title\">地址：</span>\n" +
-                    "                                        <span class=\"province\">"+prov+"</span>\n" +
-                    "                                        <span class=\"city\">"+city+"</span>\n" +
-                    "                                        <span class=\"dist\">"+dist+"</span>\n" +
-                    "                                        <span class=\"street\">"+street+"</span></p>\n" +
-                    "                                </div>\n" +
-                    "                                <div class=\"new-addr-btn\">\n" +
-                    "                                    <a onclick=\"Deleteaddress('"+address[i]+"')\"><i class=\"am-icon-trash\"></i>删除</a>\n" +
-                    "                                </div>\n" +
-                    "                            </li>"+
-                    "</div>";
+    if(name=="visitor"){
+        alert("您还未登录，请先登录或注册！")
+        var url=encodeURI("index.jsp");
+        window.location.href=url;
+    }
+    else{
+        Address = document.getElementById("Naddress");
+        $.ajax({
+            type: "POST",
+            dataType: "json",
+            data: {"membername": name, "memberid": id},
+            url: "GetMemberAddressServlet",
+            success: function (result1) {
+                //alert("地址信息");
+                var jo1 = eval(result1);
+                address = jo1.MemberAddress;
+                for (var i = 0; i < address.length; i++) {
+                    console.log(address[i]);
+                    var prov=address[i].split("-")[0];
+                    var city=address[i].split("-")[1];
+                    var dist=address[i].split("-")[2];
+                    var street=address[i].split("-")[3];
+                    console.log(prov);
+                    Address.innerHTML += " <div value='"+address[i]+"' id='"+address[i]+"'><li class=\"user-addresslist defaultAddr\">\n" +
+                        "                                <span class=\"new-option-r\"></span>\n" +
+                        "                                <p class=\"new-tit new-p-re\">\n" +
+                        "                                    <span></span>\n" +
+                        "                                    <span></span>\n" +
+                        "                                </p>\n" +
+                        "                                <div class=\"new-mu_l2a new-p-re\">\n" +
+                        "                                    <p class=\"new-mu_l2cw\">\n" +
+                        "                                        <span class=\"title\">地址：</span>\n" +
+                        "                                        <span class=\"province\">"+prov+"</span>\n" +
+                        "                                        <span class=\"city\">"+city+"</span>\n" +
+                        "                                        <span class=\"dist\">"+dist+"</span>\n" +
+                        "                                        <span class=\"street\">"+street+"</span></p>\n" +
+                        "                                </div>\n" +
+                        "                                <div class=\"new-addr-btn\">\n" +
+                        "                                    <a onclick=\"Deleteaddress('"+address[i]+"')\"><i class=\"am-icon-trash\"></i>删除</a>\n" +
+                        "                                </div>\n" +
+                        "                            </li>"+
+                        "</div>";
+                }
+                console.log(address);
             }
-            console.log(address);
-        }
-    });
+        });
+    }
+
 }
 function Deleteaddress(address){
     var Addresses=[];
