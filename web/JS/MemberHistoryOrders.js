@@ -108,11 +108,31 @@ function GetOrdersByPrice(){
                         +"<td class='ordertimeline-handle'>"
                         //+"<a class='ordertimeline-handle-detail' onclick='getOrderInfo()'>订单详情</a>"
 
-                        +"<button type='button' class='btn btn-default' title='Popover title'" +
-                        "data-container='body' data-toggle='popover' data-placement='left'" +
-                        "data-content='左侧的 Popover 中的一些内容'>" +
-                        "左侧的 Popover" +
-                        "</button>"
+                        +"<button class='btn btn-primary btn-lg' data-toggle='modal' data-target='#myModal'>"
+                        +"订单详情"
+                        +"</button>"
+                        +"<div class='modal fade' id='myModal' tabindex='-1' role='dialog' aria-labelledby='myModalLabel' aria-hidden='true' style='display:none;'>" +
+                        "<div class='modal-dialog'>" +
+                        "<div class='modal-content'>" +
+                        "<div class='modal-header'>" +
+                        "<button type='button' class='close' data-dismiss='modal' aria-hidden='true'>" +
+                        "&times;" +
+                        "</button>" +
+                        "<h4 class='modal-title' id='myModalLabel'>" +
+                        "我是标题" +
+                        "</h4>" +
+                        "</div>" +
+                        "<div class='modal-body'>" +
+                        "哈哈哈哈哈哈哈" +
+                        "</div>" +
+                        "<div class='modal-footer'>" +
+                        "<button type='button' class='btn btn-default' data-dismiss='modal'>关闭" +
+                        "</button>" +
+
+                        "</div>" +
+                        "</div>" +
+                        "</div>" +
+                        "</div>"
 
 
                         +"</td>"
@@ -176,22 +196,31 @@ function GetOrdersByPrice(){
                         +"<td class='ordertimeline-handle'>"
                         //+"<a class='ordertimeline-handle-detail' onclick='getOrderInfo()'>订单详情</a>"
 
-                        +"	<div>"
-                        //+"		<div class='am-btn-group am-btn-group-xs'>"
+                        +"<button class='btn btn-primary btn-lg' data-toggle='modal' data-target='#myModal'>"
+                        +"订单详情"
+                        +"</button>"
+                        +"<div class='modal fade' id='myModal' tabindex='-1' role='dialog' aria-labelledby='myModalLabel' aria-hidden='true' style='display:none;'>" +
+                        "<div class='modal-dialog'>" +
+                        "<div class='modal-content'>" +
+                        "<div class='modal-header'>" +
+                        "<button type='button' class='close' data-dismiss='modal' aria-hidden='true'>" +
+                        "&times;" +
+                        "</button>" +
+                        "<h4 class='modal-title' id='myModalLabel'>" +
+                        "我是标题" +
+                        "</h4>" +
+                        "</div>" +
+                        "<div class='modal-body'>" +
+                        "哈哈哈哈哈哈哈" +
+                        "</div>" +
+                        "<div class='modal-footer'>" +
+                        "<button type='button' class='btn btn-default' data-dismiss='modal'>关闭" +
+                        "</button>" +
 
-                        +"<a class='ordertimeline-handle-detail' onclick='getOrderInfo()'>订单详情</a>"
-                        //+"			<button "
-                        //+"				class='am-btn am-btn-default am-btn-xs am-hide-sm-only' id='"+i+"' onclick='getOrderInfo("+result[i].orderID+")'>"
-                        //+"				<span class='am-icon-trash-o'></span> 删除"
-                        //+"			</button>"
-                        //+"		</div>"
-                        +"	</div>"
-
-                        +"</td>"
-                        +"</tr>"
-
-                        +"<tr class='detail-view' style='display: none;'>"
-                        +"<td colspan='7'>"
+                        "</div>" +
+                        "</div>" +
+                        "</div>" +
+                        "</div>"
                         +"</td>"
                         +"</tr>";
                     /*Price.innerHTML +="<div width='100%'>" +
@@ -463,12 +492,31 @@ function GetOrdersByOrderTime(){
                         +"<td class='ordertimeline-handle'>"
                         //+"<a class='ordertimeline-handle-detail' onclick='getOrderInfo()'>订单详情</a>"
 
-                        +"<button type='button' class='btn btn-default' title='Popover title'" +
-                        "data-container='body' data-toggle='popover' data-placement='left'" +
-                        "data-content='左侧的 Popover 中的一些内容'>" +
-                        "左侧的 Popover" +
-                        "</button>"
+                        +"<button class='btn btn-primary btn-lg' data-toggle='modal' data-target='#myModal'>"
+                        +"订单详情"
+                        +"</button>"
+                        +"<div class='modal fade' id='myModal' tabindex='-1' role='dialog' aria-labelledby='myModalLabel' aria-hidden='true' style='display:none;'>" +
+                        "<div class='modal-dialog'>" +
+                        "<div class='modal-content'>" +
+                        "<div class='modal-header'>" +
+                        "<button type='button' class='close' data-dismiss='modal' aria-hidden='true'>" +
+                        "&times;" +
+                        "</button>" +
+                        "<h4 class='modal-title' id='myModalLabel'>" +
+                        "我是标题" +
+                        "</h4>" +
+                        "</div>" +
+                        "<div class='modal-body'>" +
+                        "哈哈哈哈哈哈哈" +
+                        "</div>" +
+                        "<div class='modal-footer'>" +
+                        "<button type='button' class='btn btn-default' data-dismiss='modal'>关闭" +
+                        "</button>" +
 
+                        "</div>" +
+                        "</div>" +
+                        "</div>" +
+                        "</div>"
 
                         +"</td>"
                         +"</tr>";
@@ -496,22 +544,31 @@ function GetOrdersByOrderTime(){
                         +"<td class='ordertimeline-handle'>"
                         //+"<a class='ordertimeline-handle-detail' onclick='getOrderInfo()'>订单详情</a>"
 
-                        +"	<div>"
-                        //+"		<div class='am-btn-group am-btn-group-xs'>"
+                        +"<button class='btn btn-primary btn-lg' data-toggle='modal' data-target='#myModal'>"
+                        +"订单详情"
+                        +"</button>"
+                        +"<div class='modal fade' id='myModal' tabindex='-1' role='dialog' aria-labelledby='myModalLabel' aria-hidden='true' style='display:none;'>" +
+                        "<div class='modal-dialog'>" +
+                        "<div class='modal-content'>" +
+                        "<div class='modal-header'>" +
+                        "<button type='button' class='close' data-dismiss='modal' aria-hidden='true'>" +
+                        "&times;" +
+                        "</button>" +
+                        "<h4 class='modal-title' id='myModalLabel'>" +
+                        "我是标题" +
+                        "</h4>" +
+                        "</div>" +
+                        "<div class='modal-body'>" +
+                        "哈哈哈哈哈哈哈" +
+                        "</div>" +
+                        "<div class='modal-footer'>" +
+                        "<button type='button' class='btn btn-default' data-dismiss='modal'>关闭" +
+                        "</button>" +
 
-                        +"<a class='ordertimeline-handle-detail' onclick='getOrderInfo()'>订单详情</a>"
-                        //+"			<button "
-                        //+"				class='am-btn am-btn-default am-btn-xs am-hide-sm-only' id='"+i+"' onclick='getOrderInfo("+result[i].orderID+")'>"
-                        //+"				<span class='am-icon-trash-o'></span> 删除"
-                        //+"			</button>"
-                        //+"		</div>"
-                        +"	</div>"
-
-                        +"</td>"
-                        +"</tr>"
-
-                        +"<tr class='detail-view' style='display: none;'>"
-                        +"<td colspan='7'>"
+                        "</div>" +
+                        "</div>" +
+                        "</div>" +
+                        "</div>"
                         +"</td>"
                         +"</tr>";
 
@@ -648,6 +705,31 @@ function getOrderInfo()
     //document.getElementById("info").style.display="block";
     //document.getElementById("collapseTwo").collapse('show');
 }
-$(function () {
-    $("[data-toggle='popover']").popover();
+
+$(function() {
+    $("[data-toggle='popover']").popover({
+        html : true,
+        title: title(),
+        delay:{show:500, hide:1000},
+        content: function() {
+            return content();
+        }
+    });
 });
+
+//模拟动态加载标题(真实情况可能会跟后台进行ajax交互)  
+function title() {
+    return '订单详情)';
+}
+
+//模拟动态加载内容(真实情况可能会跟后台进行ajax交互)  
+function content() {
+    var data = $("<form><ul><li><p>粉丝数:7389223</p></li>" +
+        "</ul></form>");
+
+    return data;
+}
+
+/*$(function () {
+    $("[data-toggle='popover']").popover();
+});*/
